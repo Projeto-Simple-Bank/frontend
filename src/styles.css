@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+/* Esse arquivo simboliza um css global para aplicação */
+/* Aqui onde fica as cores do nosso site que pode ser chamado em qualquer lugar da aplicação */
+:root {
+  --primary: #e80070;
+  --secondary: #ffedf2;
+  --background-light-gray: #f5f7f9;
+  --background-medium-gray: #e2e4e5;
+  --text-dark: #333951;
+  --text-light: #ffffff;
+}
+
+/* Aqui defino globalmente alguns valores para o css */
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
+}
