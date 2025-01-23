@@ -4,15 +4,16 @@
 >
   <div class="d-flex gap-2">
     <img width="30px" src="/assets/menu-icon.svg" alt="Menu do site" />
-    <a class="navbar-brand fs-5" style="color: var(--text-light)" href="#"
+    <a class="navbar-brand fs-5" style="color: var(--text-light)" routerLink="/"
       >Menu</a
     >
   </div>
-  <img
-    style="width: 200px"
-    src="/assets/logo-simple-bank.svg"
-    alt="Logo do Simple Bank"
-  />
+  <a routerLink="/">
+    <img
+      style="width: 200px"
+      src="/assets/logo-simple-bank.svg"
+      alt="Logo do Simple Bank"
+  /></a>
 
   <div class="d-flex gap-2">
     <img
@@ -20,7 +21,10 @@
       src="/assets/user-icon.svg"
       alt="Ícone de acessar conta do usuário"
     />
-    <a class="navbar-brand fs-5" style="color: var(--text-light)" href="#"
+    <a
+      class="navbar-brand fs-5"
+      style="color: var(--text-light)"
+      routerLink="/login"
       >Acessar Conta</a
     >
   </div>

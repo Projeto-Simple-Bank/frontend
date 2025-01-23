@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MenuComponent } from './components/menu/menu.component';
+
+// componentes que nós criamos
+import { MenuComponent } from './components';
 
 @Component({
   selector: 'app-root',
