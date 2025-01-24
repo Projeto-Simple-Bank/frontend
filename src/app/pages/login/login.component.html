@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div class="gap-5 d-flex justify-content-center align-items-center"
+    style="height: 100vh; background: var(--secondary); display: flex; flex-wrap: nowrap;">
+    <img
+        style="width: 55%; object-fit: cover;"
+        src="/assets/investment-img.svg"
+        alt="Uma imagem de uma mulher investindo"
+    />
+    <div 
+        style="height: 100%; width: 45%; background: var(--text-light); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <img style="width: 300px; margin-bottom: 20px;" src="/assets/logo-color.svg" alt="Logo simple bank colorida" />
+        <form style="width: 80%;">
+            <div class="form-floating mb-3">
+                <input type="conta" class="form-control" id="conta" placeholder="Conta">
+                <label for="conta">Número de Conta</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Senha</label>
+            </div>
+            <a href="#" style="margin-bottom: 20px; display: block; text-align: right; text-decoration: none; color: black; margin-top: 15px;">Esqueci a senha</a>
+            <button
+                type="button"
+                class="btn"
+                style="color: var(--text-light); background: var(--primary); font-size: 20px; width: 100%;"
+                >
+                <span class="fw-semibold">Enviar</span>
+            </button>
+        </form>
+        <a href="#" style="margin-top: 20px; text-decoration: none; color: black; font-weight: bold;">Entrar como Gerente</a>
+    </div>
+</div>
