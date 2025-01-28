@@ -1,0 +1,115 @@
+<div
+    class="gap-5 d-flex justify-content-center align-items-center px-4"
+    style="height: 100vh; background: var(--secondary)"
+>
+    <div>
+        <div
+            class="rounded-4 p-4 mb-4 d-flex flex-column"
+            style="background-color: var(--text-light);"
+        >
+            <h3>Saldo</h3>
+            <div class="d-flex justify-content-center align-items-center" style="gap: 8px; width: 100%;">
+                <p style="margin: 0;">R$</p>
+                <div class="d-flex align-items-center" style="gap: 8px;">
+                    <span style="font-size: 30px;">2.000,00</span>
+                    <button
+                        style="background: none; border: none; padding: 0; cursor: pointer;">
+                        <i class="bi bi-eye-slash" style="font-size: 24px;"></i>
+                    </button>
+                </div>
+            </div>
+    </div>
+    
+        <div
+            class="rounded-4 p-4"
+            style="background-color: var(--text-light);"
+        >
+            <h3>Acesso rápido</h3>
+            <div class="d-flex flex-column">
+                <button
+                type="submit"
+                class="mt-2 btn btn-large fw-bold rounded-3"
+                style="background: var(--primary); color: var(--text-light);"
+                >Área PIX</button>
+                <button
+                type="submit"
+                class="mt-2 btn btn-large fw-bold rounded-3"
+                style="background: var(--primary); color: var(--text-light);"
+                >TED</button>
+                <button
+                type="submit"
+                class="mt-2 btn btn-large fw-bold rounded-3"
+                style="background: var(--primary); color: var(--text-light);"
+                >Pagar Boleto</button>
+                <button
+                type="submit"
+                class="mt-2 btn btn-large fw-bold rounded-3"
+                style="background: var(--primary); color: var(--text-light);"
+                >Cartão de Crédito</button>
+                <button
+                type="submit"
+                class="mt-2 btn btn-large fw-bold rounded-3"
+                style="background: var(--primary); color: var(--text-light);"
+                >Investimento</button>
+            </div>
+        </div>
+    </div>
+    <div
+        class="rounded-4 p-4"
+        style="background-color: var(--text-light); width: 60%; height: 80%;"
+    >
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3>Resumo de Transações</h3>
+            <input type="date" class="form-control w-25"/>
+        </div>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Data</th>
+                      <th scope="col">Pago</th>
+                      <th scope="col">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>12/02/2025</td>
+                      <td>Mark Otto</td>
+                      <td>R$ 25</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>12/02/2025</td>
+                      <td>Mark Otto</td>
+                      <td>R$ 25</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>12/02/2025</td>
+                      <td>Mark Otto</td>
+                      <td>R$ 25</td>
+                    </tr>
+                </tbody>
+            </table>
+            <nav aria-label="Paginas extrato" class="d-flex justify-content-center mt-4">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous" style="color: var(--primary)">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#" style="color: var(--primary)">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#" style="color: var(--primary)">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#" style="color: var(--primary)">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next" style="color: var(--primary)">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+    </div>
+</div>
