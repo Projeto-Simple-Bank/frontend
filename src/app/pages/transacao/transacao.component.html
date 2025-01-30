@@ -1,67 +1,13 @@
-<div
-  class="gap-5 d-flex justify-content-center align-items-center px-4"
-  style="height: 100vh; background: var(--secondary)"
->
-  <div class="gap-2 d-flex flex-column align-items-center" style="width: 45%; height: 50%;">
-    <h1 class="fs-1 fw-bold mb-4 w-100" style="letter-spacing: 2px; color: var(--primary)">
-      Transações
-    </h1>
-    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Show a second modal and hide this one with the button below.
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Hide this modal and show the first with the button below.
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button type="submit"
-        class="mt-2 btn btn-large fw-bold w-75 rounded-3"
-        style="background: var(--primary); color: var(--text-light);" 
-        data-bs-target="#exampleModalToggle" 
-        data-bs-toggle="modal">Transferência entre contas SimpleBank</button>
-    <button
-        type="submit"
-        class="mt-2 btn btn-large fw-bold w-75 rounded-3"
-        style="background: var(--primary); color: var(--text-light);"
-    >Agendar/Cancelar transferências</button>
-    <button
-        type="submit"
-        class="mt-2 btn btn-large fw-bold w-75 rounded-3"
-        style="background: var(--primary); color: var(--text-light);"
-    >Para outros bancos - TED</button>
-    <button
-        type="submit"
-        class="mt-2 btn btn-large fw-bold w-75 rounded-3"
-        style="background: var(--primary); color: var(--text-light);"
-    >Comprovantes (2ª via)</button>
+<div class="gap-5 d-flex justify-content-center align-items-center px-4"
+  style="height: 100vh; background: var(--secondary)">
+  <div style="height: 80%;">
+
+    <div class="rounded-4 p-4" style="background-color: var(--text-light); height: 100%;">
+      <app-transferencia></app-transferencia>
+    </div>
   </div>
-  <img
-    style="max-width: 550px"
-    src="/assets/pay-img.svg"
-    alt="Imagem de uma mulher relaxando"
-  />
+
+  <div class="rounded-4 p-4" style="background-color: var(--text-light); width: 60%; height: 80%;">
+    <app-area-pix></app-area-pix>
+  </div>
 </div>

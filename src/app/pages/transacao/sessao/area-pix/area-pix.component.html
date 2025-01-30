@@ -1,0 +1,164 @@
+<h3>Área PIX</h3>
+<div class="d-flex justify-content-center align-items-center" style="gap: 8px; width: 100%;">
+
+    <div class="modal fade" id="modalPix" aria-hidden="true" aria-labelledby="modalPix" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalPix">Pagamento via Pix Copia e Cola</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label>Código Pix:</label>
+                    <input type="text" class="form-control" style="background-color: var(--background-light-gray);" />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" style="background: var(--primary); color: var(--text-light);"
+                        data-bs-target="#modalPix2" data-bs-toggle="modal">Avançar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalPix2" aria-hidden="true" aria-labelledby="modalPix2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalPix2">Confirmações de Pagamento</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label>Senha de Transação:</label>
+                    <input type="text" class="form-control" style="background-color: var(--background-light-gray);" />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" style="background: var(--primary); color: var(--text-light);"
+                        data-bs-target="#modalPix" data-bs-toggle="modal">Voltar</button>
+                    <button type="button" style="background: var(--primary); color: var(--text-light);"
+                        class="btn btn-primary">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="mt-2 btn btn-large fw-bold rounded-3"
+        style="background: var(--primary); color: var(--text-light);" data-bs-target="#modalPix"
+        data-bs-toggle="modal"><i class="bi bi-copy"></i> Pix Copia e Cola</button>
+
+    <div class="modal fade" id="modalQrCode" aria-hidden="true" aria-labelledby="modalQrCode" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalQrCode">Pagamento via Pix Copia e Cola</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label>Código Pix:</label>
+                    <input type="image" class="form-control" style="background-color: var(--background-light-gray);" />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" style="background: var(--primary); color: var(--text-light);"
+                        data-bs-target="#modalQrCode2" data-bs-toggle="modal">Avançar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalQrCode2" aria-hidden="true" aria-labelledby="modalQrCode2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalQrCode2">Confirmações de Pagamento</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label>Senha de Transação:</label>
+                    <input type="text" class="form-control" style="background-color: var(--background-light-gray);" />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" style="background: var(--primary); color: var(--text-light);"
+                        data-bs-target="#modalQrCode" data-bs-toggle="modal">Voltar</button>
+                    <button type="button" style="background: var(--primary); color: var(--text-light);"
+                        class="btn btn-primary">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="mt-2 btn btn-large fw-bold rounded-3"
+        style="background: var(--primary); color: var(--text-light);" data-bs-target="#modalQrCode"
+        data-bs-toggle="modal"><i class="bi bi-qr-code-scan"></i> Pagar um QrCode</button>
+
+    <div class="modal fade" id="modalReceberPix" aria-hidden="true" aria-labelledby="modalReceberPix" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalReceberPix">Pagamento via Pix Copia e Cola</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label>Código Pix:</label>
+                    <input type="text" class="form-control" style="background-color: var(--background-light-gray);" />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" style="background: var(--primary); color: var(--text-light);"
+                        data-bs-target="#modalReceberPix2" data-bs-toggle="modal">Avançar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalReceberPix2" aria-hidden="true" aria-labelledby="modalReceberPix2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalReceberPix2">Confirmações de Pagamento</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label>Senha de Transação:</label>
+                    <input type="text" class="form-control" style="background-color: var(--background-light-gray);" />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" style="background: var(--primary); color: var(--text-light);"
+                        data-bs-target="#modalReceberPix" data-bs-toggle="modal">Voltar</button>
+                    <button type="button" style="background: var(--primary); color: var(--text-light);"
+                        class="btn btn-primary">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="mt-2 btn btn-large fw-bold rounded-3"
+        style="background: var(--primary); color: var(--text-light);" data-bs-target="#modalReceberPix"
+        data-bs-toggle="modal"><i class="bi bi-cash-coin"></i> Receber por Pix</button>
+</div>
+
+<div class="rounded-4 p-4">
+    <h5>Mais opções</h5>
+    <div class="d-flex justify-content-center align-items-center" style="gap: 8px; width: 100%;">
+        <button type="submit" class="mt-2 btn btn-large fw-bold rounded-3"
+            style="background: var(--primary); color: var(--text-light);">Contatos</button>
+        <button type="submit" class="mt-2 btn btn-large fw-bold rounded-3"
+            style="background: var(--primary); color: var(--text-light);">Minhas Chaves Pix</button>
+        <button type="submit" class="mt-2 btn btn-large fw-bold rounded-3"
+            style="background: var(--primary); color: var(--text-light);">Cadastrar Chave Pix</button>
+        <button type="submit" class="mt-2 btn btn-large fw-bold rounded-3"
+            style="background: var(--primary); color: var(--text-light);">Portabilidade</button>
+    </div>
+</div>
+
+<div class="p-4 rounded-4" style="background-color: var(--background-light-gray); height: 50%;">
+    <h3>Últimas Transações</h3>
+    <div class="gap-3 d-flex">
+        <a href="#" class="d-flex flex-column align-items-center" style="font-size: 80px; color: var(--text-dark); text-decoration: none;">
+            <i class="bi bi-person-circle"></i>
+            <span style="font-size: 12px;">Nome do Contato</span>
+        </a>
+        <a href="#" class="d-flex flex-column align-items-center" style="font-size: 80px; color: var(--text-dark); text-decoration: none;">
+            <i class="bi bi-person-circle"></i>
+            <span style="font-size: 12px;">Nome do Contato</span>
+        </a>
+        <a href="#" class="d-flex flex-column align-items-center" style="font-size: 80px; color: var(--text-dark); text-decoration: none;">
+            <i class="bi bi-person-circle"></i>
+            <span style="font-size: 12px;">Nome do Contato</span>
+        </a>
+    </div>
+</div>
