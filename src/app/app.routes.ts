@@ -5,5 +5,5 @@ import { DashboardClienteComponent } from './pages/dashboard-cliente/dashboard-c
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'deshboard', component: DashboardClienteComponent },
+  { path: 'dashboard/:id', component: DashboardClienteComponent },
 ];
