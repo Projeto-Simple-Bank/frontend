@@ -34,12 +34,16 @@
         class="form-control mb-3"
         placeholder="Conta"
         aria-label="default input example"
+        [(ngModel)]="conta.conta"
+        name="conta"
       />
       <input
         type="password"
         class="form-control mb-3"
         placeholder="Senha"
         aria-label="default input example"
+        [(ngModel)]="conta.senha"
+        name="senha"
       />
       <a
         routerLink="/cadastro"
@@ -67,6 +71,7 @@
           font-size: 20px;
           height: 45px;
         "
+        (click)="logar()"
       >
         <span class="fw-semibold">Enviar</span>
       </button>
