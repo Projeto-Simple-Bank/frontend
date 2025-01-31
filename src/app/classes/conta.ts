@@ -8,7 +8,8 @@ export class Conta {
     public saldo: number = 0.0,
     public conta: string= '',
     public senha: string = '',
+    public status: boolean= true,
 
-    public usuario?: Usuario
+    public usuario?: Usuario,
   ) {}
 }

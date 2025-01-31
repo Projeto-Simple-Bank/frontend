@@ -1,0 +1,26 @@
+<div class="d-flex flex-column p-4" style="height: 100vh; background-color: var(--secondary);">
+    <h3 class="p-2" style="color: var(--primary);">Gerenciamento de Usuário</h3>
+
+    <div>
+        <table class="table table-hover" style="width: 80%; margin: auto;">
+          <thead>
+            <tr>
+              <th scope="col">N°</th>
+              <th scope="col">Usuário</th>
+              <th scope="col">Número de Conta</th>
+              <th scope="col">Saldo</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of contas; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ c.usuario?.nome }}</td>
+                <td>{{ c.conta }}</td>
+                <td>{{ c.saldo }}</td>
+                <td>{{ c.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>
