@@ -1,5 +1,7 @@
 /* Esse arquivo simboliza um css global para aplicação */
 /* Aqui onde fica as cores do nosso site que pode ser chamado em qualquer lugar da aplicação */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
   --primary: #e80070;
   --secondary: #ffedf2;
@@ -10,8 +12,11 @@
 }
 
 /* Aqui defino globalmente alguns valores para o css */
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 body {
   padding: 0px;
   margin: 0px;
-  font-family: "Roboto", sans-serif;
 }

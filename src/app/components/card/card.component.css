@@ -1,0 +1,12 @@
+.card {
+  background-color: white; /* Fundo branco */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  transition: box-shadow 0.3s ease; /* Efeito suave para a sombra */
+  border: 0px solid;
+}
+
+.card:hover {
+  box-shadow: 0px 8px 15px rgba(232, 0, 112, 0.2); /* Sombra mais forte ao passar o mouse */
+}
