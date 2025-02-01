@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 // componentes que nós criamos
-import { MenuComponent, SidebarComponent } from './components';
+import { MenuComponent, SidebarComponent, FooterComponent } from './components';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MenuComponent],
+  imports: [RouterOutlet, MenuComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'frontend';

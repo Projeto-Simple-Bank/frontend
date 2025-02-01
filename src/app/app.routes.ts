@@ -5,6 +5,7 @@ import {
   LoginComponent,
   DashboardClienteComponent,
   TransacaoComponent,
+  CadastroClienteComponent,
 } from './pages';
 
 export const routes: Routes = [
@@ -12,4 +13,5 @@ export const routes: Routes = [
   { path: 'dashboard/:id', component: DashboardClienteComponent },
   { path: 'transacao', component: TransacaoComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'cadastro', component: CadastroClienteComponent },
 ];

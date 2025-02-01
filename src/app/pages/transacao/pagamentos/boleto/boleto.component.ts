@@ -23,7 +23,7 @@ export class BoletoComponent {
 
   efetuarPagamento(boleto: Boleto): void {
     this.boleto.statusBoleto = true;
-    this.boleto.dataTrasacao = '31/01/2025';
+    this.boleto.dataTransacao = '31/01/2025';
     this.boleto.contaId = 'a3263580-2ecb-4a35-b7ce-8fdee4db99a5'; // paula
 
     this.boletoService.postBoletoAPI(boleto).subscribe({

@@ -21,7 +21,7 @@ export class TedComponent {
     this.transacao.tipoTransacao = 2; // acho que já está enviando
     this.transacao.contaOrigem = 'db6802af-a3ba-46cf-a65f-91b4cd0e134c'; // samira
     this.transacao.contaDestino = 'a3263580-2ecb-4a35-b7ce-8fdee4db99a5'; // paula
-    this.transacao.dataTrasacao = '31/01/2025';
+    this.transacao.dataTransacao = '31/01/2025';
 
     this.transacaoService.postTransacaoAPI(transasacao).subscribe({
       error: (erro) => {
