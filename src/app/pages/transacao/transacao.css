@@ -1,0 +1,12 @@
+.form-select option:disabled {
+  color: #888;
+}
+
+.card {
+  background-color: var(--background-medium-gray); /* Fundo branco */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  transition: box-shadow 0.3s ease; /* Efeito suave para a sombra */
+  border: 0px solid;
+}

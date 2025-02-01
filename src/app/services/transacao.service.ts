@@ -16,4 +16,12 @@ export class TransacaoService {
   public getTransacoesAPI(): Observable<Transacao[]> {
     return this.http.get<Transacao[]>(`${this.baseUrl}/lista`);
   }
+
+  // método de pagamento pix e ted
+  public postTransacaoAPI(transacao: Transacao): Observable<Transacao> {
+    return this.http.post<Transacao>(
+      `${this.baseUrl}/efetuar-pagamento`,
+      transacao
+    );
+  }
 }
