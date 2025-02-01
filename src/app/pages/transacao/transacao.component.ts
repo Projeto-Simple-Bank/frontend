@@ -5,8 +5,7 @@ import { BoxContentComponent, CardComponent } from '../../components';
 import { BoletoService, TransacaoService } from '../../services';
 import { Boleto, Transacao } from '../../classes';
 import { CadastroPixComponent } from './cadastro-pix';
-import { PixComponent } from './pagamentos/pix/pix.component';
-import { TedComponent } from './pagamentos/ted/ted.component';
+import { PixComponent, TedComponent, BoletoComponent } from './pagamentos';
 
 @Component({
   selector: 'app-transacao',
