@@ -1,0 +1,66 @@
+<div style="background: var(--secondary)">
+  <app-box-content>
+    <div class="d-flex justify-content-between mb-5">
+      <div>
+        <h1>
+          Olá
+          <span style="color: var(--primary)">{{ conta.usuario?.nome }}</span
+          >, seja bem vindo!
+        </h1>
+        <div class="d-flex align-items-center gap-2">
+          <h3 style="margin: 0px; font-size: 30px">Saldo</h3>
+
+          <span style="font-size: 30px">{{ conta.saldo }}</span>
+          <button
+            style="background: none; border: none; padding: 0; cursor: pointer"
+          >
+            <i class="bi bi-eye-slash" style="font-size: 24px"></i>
+          </button>
+        </div>
+      </div>
+
+      <app-card-acesso-rapido></app-card-acesso-rapido>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <h3>Extrato bancário</h3>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <input type="date" class="form-control" />
+      </div>
+    </div>
+
+    <div
+      class="rounded-4 p-4"
+      style="
+        background: var(--text-light);
+        border: 0px;
+        box-shadow: 0.5px 0.5px 4px gray;
+      "
+    >
+      <div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">N°</th>
+              <th scope="col">Data</th>
+              <th scope="col">Pago</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let t of transacoes; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ t.dataTransacao }}</td>
+              <td>{{ t.tipoTransacao }}</td>
+              <td>{{ t.valor }}</td>
+              <td>{{ t.descricao }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <app-paginacao></app-paginacao>
+  </app-box-content>
+</div>
