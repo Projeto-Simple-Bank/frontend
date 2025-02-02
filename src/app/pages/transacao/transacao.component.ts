@@ -6,6 +6,7 @@ import { BoletoService, TransacaoService } from '../../services';
 import { Boleto, Transacao } from '../../classes';
 import { CadastroPixComponent } from './cadastro-pix';
 import { PixComponent, TedComponent, BoletoComponent } from './pagamentos';
+import { ListarPixsComponent } from './listar-pixs';
 
 @Component({
   selector: 'app-transacao',
@@ -16,6 +17,8 @@ import { PixComponent, TedComponent, BoletoComponent } from './pagamentos';
     CadastroPixComponent,
     PixComponent,
     TedComponent,
+    ListarPixsComponent,
+    BoletoComponent,
   ],
   templateUrl: './transacao.component.html',
   styleUrl: './transacao.css',

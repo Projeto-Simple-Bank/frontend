@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 
 import { CardComponent } from '../../../components';
 import { PixService } from '../../../services';
-import { Pix } from '../../../classes';
+import { Conta, Pix } from '../../../classes';
 
 @Component({
   selector: 'app-cadastro-pix',
@@ -14,17 +14,19 @@ export class CadastroPixComponent {
   constructor(private pixService: PixService) {}
 
   pix: Pix = new Pix();
+  conta: Conta = new Conta();
 
   criarChavePix(pix: Pix): void {
-    if (this.pix.conta != null) {
-      this.pix.conta.id = 'db6802af-a3ba-46cf-a65f-91b4cd0e134c';
-    }
+    this.pix.chavePix = pix.chavePix;
+    this.conta.id = sessionStorage.getItem('auth_token') as string;
 
-    this.pixService.postPixAPI(pix).subscribe({
-      error: (erro) => {
-        console.error(erro);
-        // window.alert(erro);
-      },
-    });
+    this.pixService
+      .postPixAPI({ chavePix: this.pix.chavePix, conta: { id: this.conta.id } })
+      .subscribe({
+        error: (erro) => {
+          console.error(erro);
+          // window.alert(erro);
+        },
+      });
   }
 }
