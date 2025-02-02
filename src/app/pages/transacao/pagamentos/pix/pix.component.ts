@@ -20,12 +20,14 @@ export class PixComponent {
   transacao: Transacao = new Transacao();
 
   consultarChavePix(chavePix: string): void {
-    this.pixService.getPixAPI(chavePix).subscribe((resp) => (this.pix = resp));
+    this.pixService
+      .getChavePixAPI(chavePix)
+      .subscribe((resp) => (this.pix = resp));
   }
 
   efetuarPagamento(transacao: Transacao): void {
-    this.transacao.tipoTransacao = 1; // acho que já está enviando
-    this.transacao.contaOrigem = 'db6802af-a3ba-46cf-a65f-91b4cd0e134c'; // samira
+    this.transacao.tipoTransacao = 1;
+    this.transacao.contaOrigem = sessionStorage.getItem('auth_token') as string;
     this.transacao.contaDestino = this.pix.conta?.id as string;
 
     this.transacaoService.postTransacaoAPI(transacao).subscribe({
