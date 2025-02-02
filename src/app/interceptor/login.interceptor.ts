@@ -5,7 +5,7 @@ import {
 } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 
-// fazer uma validacao de erro melhor
+// fazer uma validacao de erro melhor e colocar um alert
 
 // Aqui adiciona o token em todas as urls que precisam
 // dele, porque ao fazer security no backend você não permite

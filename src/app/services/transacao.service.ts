@@ -12,9 +12,9 @@ export class TransacaoService {
 
   baseUrl: string = 'http://localhost:8080/transacoes';
 
-  // método para listar todos as transacoes
-  public getTransacoesAPI(): Observable<Transacao[]> {
-    return this.http.get<Transacao[]>(`${this.baseUrl}/lista`);
+  // método para listar todos as transacoes associada a um usuário específico
+  public getTransacaoDaContaAPI(idConta: string): Observable<Transacao[]> {
+    return this.http.get<Transacao[]>(`${this.baseUrl}/${idConta}`);
   }
 
   // método de pagamento pix e ted
