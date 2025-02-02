@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Conta } from '../classes';
+import { Conta, Login } from '../classes';
 
 @Injectable({
   providedIn: 'root',
@@ -20,5 +20,9 @@ export class ContaService {
   // método para retornar o cliente pelo o id
   public getClienteAPI(id: string): Observable<Conta> {
     return this.http.get<Conta>(`${this.baseUrl}/${id}`);
+  }
+
+  public postLoginAPI(conta: Login): Observable<Login> {
+    return this.http.post<Login>(`${this.baseUrl}/login`, conta);
   }
 }

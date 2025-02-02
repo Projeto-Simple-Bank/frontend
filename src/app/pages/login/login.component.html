@@ -21,16 +21,19 @@
 
     <form class="d-grid w-100 gap-3">
       <input
-        type="text"
         class="form-control"
+        name="conta"
         placeholder="Conta"
         aria-label="default input example"
+        [(ngModel)]="conta.conta"
       />
       <input
         type="password"
+        name="senha"
         class="form-control"
         placeholder="Senha"
         aria-label="default input example"
+        [(ngModel)]="conta.senha"
       />
       <a
         routerLink="/cadastro"
@@ -58,6 +61,7 @@
           height: 45px;
           font-size: 20px;
         "
+        (click)="logarConta(conta)"
       >
         Enviar
       </button>
