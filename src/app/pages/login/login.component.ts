@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { ContaService } from '../../services';
-import { Login } from '../../classes';
+import { LoginCliente } from '../../classes';
 @Component({
   selector: 'app-login',
   imports: [RouterLink, FormsModule],
@@ -11,11 +11,11 @@ import { Login } from '../../classes';
 })
 export class LoginComponent {
   constructor(private contaService: ContaService) {}
+  conta: LoginCliente = new LoginCliente();
 
-  conta: Login = new Login();
-
-  logarConta(conta: Login): void {
+  logarConta(conta: LoginCliente): void {
     this.contaService.postLoginAPI(conta).subscribe({
+      next: (resp) => sessionStorage.setItem('auth_token', resp.id as string),
       error: (erro) => {
         console.error(erro);
         // window.alert(erro);
