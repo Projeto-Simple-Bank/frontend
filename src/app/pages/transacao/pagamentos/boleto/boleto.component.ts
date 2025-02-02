@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CardComponent } from '../../../../components';
 import { BoletoService } from '../../../../services';
 import { Boleto } from '../../../../classes';
+import { formatarData } from '../../../../utils';
 
 @Component({
   selector: 'app-boleto',
@@ -23,8 +24,8 @@ export class BoletoComponent {
 
   efetuarPagamento(boleto: Boleto): void {
     this.boleto.statusBoleto = true;
-    this.boleto.dataTransacao = '31/01/2025';
-    this.boleto.contaId = 'a3263580-2ecb-4a35-b7ce-8fdee4db99a5'; // paula
+    this.boleto.dataTransacao = formatarData(new Date());
+    this.boleto.contaId = sessionStorage.getItem('auth_token') as string;
 
     this.boletoService.postBoletoAPI(boleto).subscribe({
       error: (erro) => {
