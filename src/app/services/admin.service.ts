@@ -22,6 +22,10 @@ export class AdminService {
     return this.http.get<Admin>(`${this.baseUrl}/${id}`);
   }
 
+  public postAdminAPI(admin: Admin): Observable<Admin> {
+    return this.http.post<Admin>(`${this.baseUrl}/criar-admin`, admin);
+  }
+
   // método POST para login
   public postLoginAdminAPI(dadosLogin: { conta: string, senha: string }): Observable<Admin> {
     return this.http.post<Admin>(`${this.baseUrl}/login`, dadosLogin);

@@ -6,8 +6,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-dashboard-admin',
   imports: [CommonModule],
-  templateUrl: './dashboard-admin.component.html',
-  styleUrl: './dashboard-admin.component.css'
+  templateUrl: './dashboard-admin.component.html'
 })
 export class DashboardAdminComponent implements OnInit{
   contas: Conta[] = [];

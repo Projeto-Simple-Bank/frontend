@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-between align-items-center">
+  <div
+    class="w-100 d-flex flex-column align-items-center"
+    style="background: var(--background-medium-gray)"
+  >
+    <h1 style="max-width: 70%" class="my-5 text-center">
+      Bem vindo novo Gerente
+      <span style="color: var(--primary)">Simple</span>Bank
+    </h1>
+    <img
+      style="max-width: 450px"
+      src="/assets/cadastro-admin.svg"
+      alt="Imagem da tela de cadastro"
+    />
+  </div>
+
+  <div style="max-width: 450px">
+    <p
+      class="mb-5 px-5"
+      style="
+        font-weight: 400;
+        font-size: 22px;
+        letter-spacing: 0.5px;
+        width: 95%;
+      "
+    >
+      Faça parte da nossa equipe
+      <span style="color: var(--primary)">Simple</span>Bank!
+    </p>
+
+    <form class="d-flex flex-column gap-3 px-5">
+      <input
+        name="nome"
+        class="form-control"
+        type="text"
+        placeholder="Nome completo"
+        aria-label="default input example"
+        [(ngModel)]="admin.usuario"
+      />
+
+      <input
+        name="email"
+        class="form-control"
+        type="text"
+        placeholder="E-mail"
+        aria-label="default input example"
+        [(ngModel)]="admin.email"
+      />
+
+      <input
+        name="senha"
+        class="form-control"
+        type="password"
+        placeholder="Senha"
+        aria-label="default input example"
+        [(ngModel)]="admin.senha"
+      />
+
+      <input
+        name="conf-senha"
+        class="form-control"
+        type="password"
+        placeholder="Confirmar Senha"
+        aria-label="default input example"
+        [(ngModel)]="admin.senha"
+      />
+
+      <button
+        type="submit"
+        class="mt-5 btn btn-large fw-bold w-100 rounded-3"
+        style="
+          background: var(--primary);
+          color: var(--text-light);
+          height: 45px;
+          font-size: 20px;
+        "
+        (click)="cadastrar(admin)"
+      >
+        Enviar
+      </button>
+    </form>
+  </div>
+</div>

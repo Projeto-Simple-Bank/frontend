@@ -8,7 +8,7 @@ import {
 import { DashboardClienteComponent } from './pages/dashboard-cliente/dashboard-cliente.component';
 import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
-import { CadastroAdminComponent } from './components/cadastro-admin/cadastro-admin.component';
+import { CadastroAdminComponent } from './pages/cadastro-admin/cadastro-admin.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },

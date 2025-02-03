@@ -6,9 +6,9 @@ import { Admin } from '../../classes/admin';
 
 @Component({
   selector: 'app-login-admin',
-  imports: [FormsModule],
-  templateUrl: './login-admin.component.html',
-  styleUrl: './login-admin.component.css'
+  standalone: true,
+  imports: [ FormsModule],
+  templateUrl: './login-admin.component.html'
 })
 export class LoginAdminComponent {
     constructor(private router: Router, private adminService: AdminService) {}
