@@ -16,7 +16,7 @@ export class LoginAdminComponent {
 
     logar(): void {
       const dadosLogin = {
-        conta: this.admin.email,
+        email: this.admin.email,
         senha: this.admin.senha
       };
 

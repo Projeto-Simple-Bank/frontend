@@ -28,7 +28,9 @@ style="height: 100vh; background: var(--secondary); display: flex;">
             <label for="floatingPassword">Senha</label>
           </div>
           <a href="#" style="margin-bottom: 20px; display: block; text-align: right; text-decoration: none; color: black; margin-top: 15px;">Esqueci a senha</a>
-          <button type="button" class="btn" style="color: var(--text-light); background: var(--primary); font-size: 20px; width: 100%;">
+          <button type="button" class="btn" 
+            style="color: var(--text-light); background: var(--primary); font-size: 20px; width: 100%;"
+            (click)="logar()">
             <span class="fw-semibold">Enviar</span>
           </button>
         </form>

@@ -10,7 +10,7 @@ import { Admin } from '../classes/admin';
 export class AdminService {
   constructor(private http: HttpClient) {}
 
-  baseUrl: string = 'http://localhost:8080/contas';
+  baseUrl: string = 'http://localhost:8080/administradores';
 
   // método para listar todos os clientes
   public getContasAPI(): Observable<Admin[]> {
@@ -27,7 +27,7 @@ export class AdminService {
   }
 
   // método POST para login
-  public postLoginAdminAPI(dadosLogin: { conta: string, senha: string }): Observable<Admin> {
+  public postLoginAdminAPI(dadosLogin: { email: string, senha: string }): Observable<Admin> {
     return this.http.post<Admin>(`${this.baseUrl}/login`, dadosLogin);
   }
 }
