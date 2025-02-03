@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { CardComponent } from '../../../../components';
-import { TransacaoService } from '../../../../services';
+import { ContaService, TransacaoService } from '../../../../services';
 import { Conta, Transacao, Usuario } from '../../../../classes';
+import { formatarData } from '../../../../utils';
 
 @Component({
   selector: 'app-ted',
@@ -11,17 +12,26 @@ import { Conta, Transacao, Usuario } from '../../../../classes';
   templateUrl: './ted.component.html',
 })
 export class TedComponent {
-  constructor(private transacaoService: TransacaoService) {}
+  constructor(
+    private transacaoService: TransacaoService,
+    private contaService: ContaService
+  ) {}
 
   transacao: Transacao = new Transacao();
   conta: Conta = new Conta();
   usuario: Usuario = new Usuario();
 
+  consultarConta(numeroConta: string): void {
+    this.contaService
+      .getNumeroContaAPI(numeroConta)
+      .subscribe((resp) => (this.conta = resp));
+  }
+
   efetuarPagamento(transasacao: Transacao): void {
     this.transacao.tipoTransacao = 2; // acho que já está enviando
-    this.transacao.contaOrigem = 'db6802af-a3ba-46cf-a65f-91b4cd0e134c'; // samira
-    this.transacao.contaDestino = 'a3263580-2ecb-4a35-b7ce-8fdee4db99a5'; // paula
-    this.transacao.dataTransacao = '31/01/2025';
+    this.transacao.contaOrigem = sessionStorage.getItem('auth_token') as string;
+    this.transacao.contaDestino = this.conta.id;
+    this.transacao.dataTransacao = formatarData(new Date());
 
     this.transacaoService.postTransacaoAPI(transasacao).subscribe({
       error: (erro) => {

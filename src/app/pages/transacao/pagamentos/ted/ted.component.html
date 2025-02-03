@@ -33,6 +33,7 @@
         <input
           name="conta"
           [(ngModel)]="conta.conta"
+          onblur="consultarConta(conta.conta)"
           class="form-control"
           placeholder="Digite o número da conta"
         />
@@ -50,6 +51,7 @@
 
       <!-- Descrição da Transação (usando span de linha) -->
       <div class="col-md-9">
+        <!-- Colocar um textarea -->
         <input
           name="nome"
           [(ngModel)]="transacao.descricao"
