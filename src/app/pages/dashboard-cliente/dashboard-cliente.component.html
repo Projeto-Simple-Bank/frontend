@@ -7,15 +7,28 @@
           <span style="color: var(--primary)">{{ conta.usuario?.nome }}</span
           >, seja bem vindo!
         </h1>
-        <div class="d-flex align-items-center gap-2">
-          <h3 style="margin: 0px; font-size: 30px">Saldo</h3>
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex gap-2">
+            <h4 style="font-size: 25px">Agência</h4>
+            <span style="font-size: 22px">{{ conta.agencia }}</span>
+            <h4 style="font-size: 25px">Conta</h4>
+            <span style="font-size: 22px">{{ conta.conta }}</span>
+          </div>
 
-          <span style="font-size: 30px">{{ conta.saldo }}</span>
-          <button
-            style="background: none; border: none; padding: 0; cursor: pointer"
-          >
-            <i class="bi bi-eye-slash" style="font-size: 24px"></i>
-          </button>
+          <div class="d-flex gap-2">
+            <h3 style="margin: 0px; font-size: 25px">Saldo</h3>
+            <span style="font-size: 22px">{{ conta.saldo }}</span>
+            <button
+              style="
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+              "
+            >
+              <i class="bi bi-eye-slash" style="font-size: 24px"></i>
+            </button>
+          </div>
         </div>
       </div>
 
