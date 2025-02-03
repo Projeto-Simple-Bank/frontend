@@ -1,13 +1,17 @@
 <app-card>
-  <div class="d-flex flex-column gap-3">
-    <h2 style="font-size: 25px; font-weight: 400">Pix</h2>
+  <div class="d-flex flex-column gap-3 h-100 justify-content-between">
+    <div>
+      <h2 style="font-size: 25px; font-weight: 400; margin-bottom: 25px">
+        Pix
+      </h2>
 
-    <input
-      name="chavePix"
-      [(ngModel)]="pix.chavePix"
-      class="form-control"
-      placeholder="Digite a chave pix"
-    />
+      <input
+        name="chavePix"
+        [(ngModel)]="pix.chavePix"
+        class="form-control"
+        placeholder="Digite a chave pix"
+      />
+    </div>
 
     <button
       type="submit"
@@ -41,22 +45,27 @@
         ></button>
       </div>
       <div class="modal-body">
-        <h4 style="font-size: 18px; font-weight: 400">
-          Nome: {{ pix.conta?.usuario?.nome }}
-        </h4>
-        <h4 style="font-size: 18px; font-weight: 400">
-          CPF:{{ pix.conta?.usuario?.cpf }}
-        </h4>
-        <h4 style="font-size: 18px; font-weight: 400">
-          Instituição: SimpleBank
-        </h4>
-        <h4 style="font-size: 18px; font-weight: 400">
-          Chave pix: {{ pix.chavePix }}
-        </h4>
+        <div class="d-flex gap-1">
+          <p style="font-weight: 600">Nome:</p>
+          <p>{{ pix.conta?.usuario?.nome }}</p>
+        </div>
+        <div class="d-flex gap-1">
+          <p style="font-weight: 600">CPF:</p>
+          <p>{{ pix.conta?.usuario?.cpf }}</p>
+        </div>
+        <div class="d-flex gap-1">
+          <p style="font-weight: 600">Instituição:</p>
+          <p>SimpleBank</p>
+        </div>
+        <div class="d-flex gap-1">
+          <p style="font-weight: 600">Chave pix:</p>
+          <p>{{ pix.chavePix }}</p>
+        </div>
+
         <input
           [(ngModel)]="transacao.valor"
           placeholder="Valor a pagar"
-          class="form-control mt-4 mb-3"
+          class="form-control mt-2 mb-3"
         />
         <input
           [(ngModel)]="transacao.descricao"
