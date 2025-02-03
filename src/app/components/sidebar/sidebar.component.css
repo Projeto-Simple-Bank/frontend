@@ -1,0 +1,8 @@
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 200px;
+  background: var(--text-light);
+  margin-top: 100px;
+  padding: 10px;
+}

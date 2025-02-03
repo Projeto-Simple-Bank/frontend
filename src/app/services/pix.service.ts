@@ -11,8 +11,12 @@ export class PixService {
 
   baseUrl: string = 'http://localhost:8080/pix';
 
-  public getPixAPI(chavePix: string): Observable<Pix> {
+  public getChavePixAPI(chavePix: string): Observable<Pix> {
     return this.http.get<Pix>(`${this.baseUrl}/${chavePix}`);
+  }
+
+  public getListarPixAPI(idConta: string): Observable<Pix[]> {
+    return this.http.get<Pix[]>(`${this.baseUrl}/listar/${idConta}`);
   }
 
   public postPixAPI(pix: Pix): Observable<Pix> {

@@ -1,0 +1,28 @@
+<app-card>
+  <div class="d-flex flex-column gap-3">
+    <h2 style="font-size: 25px; font-weight: 400">Crie sua Chave Pix</h2>
+    <select class="form-select" aria-label="Default select example">
+      <option selected disabled value="">Tipo de chave</option>
+      <option value="CPF">CPF</option>
+      <option value="Telefone">Telefone</option>
+      <option value="Email">Email</option>
+    </select>
+
+    <input
+      class="form-control"
+      name="chavePix"
+      [(ngModel)]="pix.chavePix"
+      id="exampleFormControlInput1"
+      placeholder="Digite sua chave pix"
+    />
+
+    <button
+      type="button"
+      class="btn"
+      style="background: var(--primary); color: var(--text-light)"
+      (click)="criarChavePix(pix)"
+    >
+      Criar
+    </button>
+  </div>
+</app-card>

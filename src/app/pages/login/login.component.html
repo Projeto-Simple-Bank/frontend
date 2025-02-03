@@ -1,86 +1,37 @@
-<div
-  class="gap-5 d-flex justify-content-center align-items-center"
-  style="
-    height: 100vh;
-    background: var(--secondary);
-    display: flex;
-    flex-wrap: nowrap;
-  "
->
-  <img
-    style="max-width: 70%; object-fit: cover"
-    src="/assets/investment-img.svg"
-    alt="Uma imagem de uma mulher investindo"
-  />
-  <div
-    style="
-      height: 100%;
-      width: 45%;
-      background: var(--text-light);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    "
-  >
-    <img
-      style="max-width: 300px; margin-bottom: 50px"
-      src="/assets/logo-color.svg"
-      alt="Logo simple bank colorida"
-    />
-    <form class="w-100 px-5">
-      <input
-        type="text"
-        class="form-control mb-3"
-        placeholder="Conta"
-        aria-label="default input example"
+<div class="d-flex align-items-center">
+  <div class="w-100 d-flex justify-content-center align-items-center"
+    style="background: var(--secondary); height: 100vh">
+    <img src="/assets/investment-img.svg" alt="Uma imagem de uma mulher investindo" />
+  </div>
+
+  <div class="w-100 px-5 d-flex flex-column align-items-center" style="max-width: 450px">
+    <img style="max-width: 300px; margin-bottom: 50px" src="/assets/logo-color.svg" alt="Logo simple bank colorida" />
+
+    <form class="d-grid w-100 gap-3">
+      <input class="form-control" name="conta" placeholder="Conta" aria-label="default input example"
         [(ngModel)]="conta.conta"
-        name="conta"
       />
-      <input
-        type="password"
-        class="form-control mb-3"
-        placeholder="Senha"
-        aria-label="default input example"
-        [(ngModel)]="conta.senha"
-        name="senha"
+      <input type="password" name="senha" class="form-control" placeholder="Senha" aria-label="default input example"
+        [(ngModel)]="conta.senha" 
       />
-      <a
-        routerLink="/cadastro"
-        class="fw-semibold"
-        style="text-decoration: none; color: var(--text-dark)"
-        >Torne-se um <span style="color: var(--primary)">SimpleLover</span></a
-      >
-      <a
-        routerLink="/recuperar-senha"
-        class="fw-semibold"
-        style="
+      <a routerLink="/cadastro" class="fw-semibold" style="text-decoration: none; color: var(--text-dark)">Torne-se um
+        <span style="color: var(--primary)"> SimpleLover</span></a>
+      <a routerLink="/recuperar-senha" class="fw-semibold" style="
           display: block;
           text-align: right;
           text-decoration: none;
           color: var(--text-dark);
-        "
-        >Esqueci a senha</a
-      >
-      <button
-        type="button"
-        class="btn my-4 w-100"
-        style="
-          color: var(--text-light);
+        ">Esqueci a senha</a>
+      <button type="submit" class="mb-4 mt-2 btn fw-bold w-100 rounded-3" style="
           background: var(--primary);
-          font-size: 20px;
+          color: var(--text-light);
           height: 45px;
-        "
-        (click)="logar()"
-      >
-        <span class="fw-semibold">Enviar</span>
+          font-size: 20px;
+        " (click)="logarConta(conta)">
+        Enviar
       </button>
     </form>
-    <a
-      routerLink="/admin/login"
-      class="fw-semibold"
-      style="font-size: 18px; text-decoration: none; color: var(--primary)"
-      >Entrar como Gerente</a
-    >
+    <a routerLink="/admin/login" class="fw-semibold"
+      style="font-size: 18px; text-decoration: none; color: var(--primary)">Entrar como Gerente</a>
   </div>
 </div>

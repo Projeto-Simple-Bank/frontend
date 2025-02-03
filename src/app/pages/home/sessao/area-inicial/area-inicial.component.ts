@@ -4,6 +4,6 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-area-inicial',
   imports: [RouterLink],
-  templateUrl: './areaInicial.component.html',
+  templateUrl: './area-inicial.component.html',
 })
 export class AreaInicialComponent {}

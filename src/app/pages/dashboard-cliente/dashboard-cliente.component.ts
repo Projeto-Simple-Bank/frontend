@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
 
 import { CardComponent } from './card';
 import { ContaService, TransacaoService } from '../../services';
@@ -20,17 +19,16 @@ import { PaginacaoComponent } from '../../components/paginacao/paginacao.compone
 })
 export class DashboardClienteComponent implements OnInit {
   constructor(
-    private route: ActivatedRoute,
     private contasService: ContaService,
     private transacaoService: TransacaoService
   ) {}
 
   ngOnInit(): void {
-    this.conta.id = this.route.snapshot.paramMap.get('id') as string;
+    this.conta.id = sessionStorage.getItem('auth_token') as string;
 
     this.transacaoService
-      .getTransacoesAPI()
-      .subscribe({ next: (resposta) => (this.transacoes = resposta) });
+      .getTransacaoDaContaAPI(this.conta.id)
+      .subscribe((resposta) => (this.transacoes = resposta));
 
     this.contasService
       .getClienteAPI(this.conta.id)

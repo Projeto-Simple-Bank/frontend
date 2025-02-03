@@ -1,9 +1,12 @@
+import { Conta } from './conta';
 export class Transacao {
   constructor(
-    public id: string = '',
+    public contaOrigem: string = '',
+    public contaDestino: string = '',
+    public dataTransacao: string = '30/01/2025', // quero gerar automaticamente no backend
+    public descricao: string = '',
     public tipoTransacao: number = 1,
-    public dataTransacao: string = '',
-    public valor: number = 0.0,
-    public descricao: string = ''
+    public valor: number = 0,
+    public conta?: Conta
   ) {}
 }
