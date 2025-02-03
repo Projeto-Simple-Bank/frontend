@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { ContaService } from '../../services';
 import { Conta } from '../../classes';
+import { ContaService } from '../../services/conta-cliente.service';
 
 @Component({
   selector: 'app-login',
@@ -20,12 +20,14 @@ export class LoginComponent {
       conta: this.conta.conta,
       senha: this.conta.senha
     };
-
+  
     this.contaService.postLoginContaAPI(dadosLogin).subscribe({
       next: (resposta) => {
         console.log('Login bem-sucedido:', resposta);
         window.alert('Logado com sucesso!');
-        this.router.navigate(['/dashboard-cliente']);
+        
+        // Redireciona para o Dashboard com o ID da conta
+        this.router.navigate([`/dashboard/${resposta.id}`]);
       },
       error: (erro) => {
         console.error('Erro no login:', erro);

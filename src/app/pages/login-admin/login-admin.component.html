@@ -14,14 +14,17 @@ style="height: 100vh; background: var(--secondary); display: flex;">
   
         <form style="width: 80%;">
           <div class="form-floating mb-3">
-            <input type="conta" class="form-control" id="conta" placeholder="Conta">
+            <input type="text" class="form-control" id="email" placeholder="Conta"
+            [(ngModel)]="admin.email"
+             name="email" />
             <label for="conta">Usuário</label>
           </div>
           <div class="form-floating">
-            <input type="password"
-             class="form-control" 
-             id="floatingPassword" 
-             placeholder="Password">
+            <input type="password" 
+            class="form-control" id="floatingPassword" 
+            placeholder="Password"
+            [(ngModel)]="admin.senha" 
+            name="senha" />
             <label for="floatingPassword">Senha</label>
           </div>
           <a href="#" style="margin-bottom: 20px; display: block; text-align: right; text-decoration: none; color: black; margin-top: 15px;">Esqueci a senha</a>
