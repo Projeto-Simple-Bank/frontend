@@ -26,8 +26,9 @@ export class BoletoComponent {
     this.boleto.statusBoleto = true;
     this.boleto.dataTransacao = formatarData(new Date());
     this.boleto.contaId = sessionStorage.getItem('auth_token') as string;
+    this.boleto.codigo = boleto?.codigo;
 
-    this.boletoService.postBoletoAPI(boleto).subscribe({
+    this.boletoService.postBoletoAPI(this.boleto).subscribe({
       error: (erro) => {
         console.error(erro);
         // window.alert(erro);

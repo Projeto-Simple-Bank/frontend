@@ -12,8 +12,8 @@ export class BoletoService {
 
   baseUrl: string = 'http://localhost:8080/boletos';
 
-  public getBoletoAPI(codigo: string): Observable<Boleto> {
-    return this.http.get<Boleto>(`${this.baseUrl}/${codigo}`);
+  public getBoletoAPI(codigoBoleto: string): Observable<Boleto> {
+    return this.http.get<Boleto>(`${this.baseUrl}/${codigoBoleto}`);
   }
 
   public postBoletoAPI(boleto: Boleto): Observable<Boleto> {
