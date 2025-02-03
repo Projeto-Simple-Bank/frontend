@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { CardComponent } from '../../../../components';
@@ -21,10 +21,17 @@ export class TedComponent {
   conta: Conta = new Conta();
   usuario: Usuario = new Usuario();
 
+  onChangeConta(numeroConta: string) {
+    console.log('Mudança no campo de conta:', numeroConta);
+  }
+
   consultarConta(numeroConta: string): void {
-    this.contaService
-      .getNumeroContaAPI(numeroConta)
-      .subscribe((resp) => (this.conta = resp));
+    this.contaService.getNumeroContaAPI(numeroConta).subscribe({
+      next: (resp) => (this.conta = resp),
+      error: (erro) => {
+        console.error('Erro ao consultar a conta:', erro);
+      },
+    });
   }
 
   efetuarPagamento(transasacao: Transacao): void {
@@ -32,8 +39,9 @@ export class TedComponent {
     this.transacao.contaOrigem = sessionStorage.getItem('auth_token') as string;
     this.transacao.contaDestino = this.conta.id;
     this.transacao.dataTransacao = formatarData(new Date());
-
-    this.transacaoService.postTransacaoAPI(transasacao).subscribe({
+    this.transacao.descricao = transasacao.descricao;
+    this.transacao.valor = transasacao.valor;
+    this.transacaoService.postTransacaoAPI(this.transacao).subscribe({
       error: (erro) => {
         console.error(erro);
         // window.alert(erro);

@@ -33,7 +33,7 @@
         <input
           name="conta"
           [(ngModel)]="conta.conta"
-          onblur="consultarConta(conta.conta)"
+          (ngModelChange)="consultarConta(conta.conta)"
           class="form-control"
           placeholder="Digite o número da conta"
         />
@@ -66,8 +66,6 @@
           type="submit"
           class="w-50 mt-3 btn btn-large fw-bold rounded-3"
           style="background: var(--primary); color: var(--text-light)"
-          data-bs-target="#modalPix"
-          data-bs-toggle="modal"
           (click)="efetuarPagamento(transacao)"
         >
           <i class="bi bi-person-vcard"></i> Pagar
