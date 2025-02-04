@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { BoxContentComponent, CardComponent } from '../../components';
+import { BoxContentComponent } from '../../components';
 import { BoletoService, TransacaoService } from '../../services';
 import { Boleto, Transacao } from '../../classes';
 import { CadastroPixComponent } from './cadastro-pix';
@@ -11,7 +11,6 @@ import { ListarPixsComponent } from './listar-pixs';
 @Component({
   selector: 'app-transacao',
   imports: [
-    CardComponent,
     BoxContentComponent,
     FormsModule,
     CadastroPixComponent,

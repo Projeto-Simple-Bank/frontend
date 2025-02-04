@@ -1,9 +1,21 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
-  imports: [RouterLink], // vincula a rota ao componente que a usa
+  imports: [RouterLink, NgIf],
   templateUrl: './menu.component.html',
 })
-export class MenuComponent {}
+export class MenuComponent implements OnInit {
+  constructor(private router: Router) {}
+  showMenu: boolean = true;
+
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.showMenu = event.url !== '/login' && event.url !== '/cadastro';
+      }
+    });
+  }
+}
