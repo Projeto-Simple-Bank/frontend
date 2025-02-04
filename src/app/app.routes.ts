@@ -20,5 +20,5 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardClienteComponent },
   { path: 'admin/login', component: LoginAdminComponent },
   { path: 'admin/cadastro', component: CadastroAdminComponent },
-  { path: 'admin/dashboard/:id', component: DashboardAdminComponent },
+  { path: 'admin/dashboard', component: DashboardAdminComponent },
 ];

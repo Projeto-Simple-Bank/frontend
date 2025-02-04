@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { forkJoin, map, Observable } from 'rxjs';
 import { Admin } from '../classes/admin';
+import { Conta, Usuario } from '../classes';
+import { ClienteDTO } from '../classes/ClienteDTO';
 
 
 @Injectable({
@@ -30,4 +32,21 @@ export class AdminService {
   public postLoginAdminAPI(dadosLogin: { email: string, senha: string }): Observable<Admin> {
     return this.http.post<Admin>(`${this.baseUrl}/login`, dadosLogin);
   }
+  
+  public listarUsuariosSemConta(): Observable<Usuario[]> {
+    return forkJoin({
+      contas: this.http.get<Conta[]>('http://localhost:8080/contas/lista'),
+      usuarios: this.http.get<Usuario[]>('http://localhost:8080/usuarios/lista')
+    }).pipe(
+      map(({ contas, usuarios }) => {
+        const usuariosComConta = new Set(contas.map(conta => conta.usuario?.id)); // IDs dos usuários que têm conta
+        return usuarios.filter(usuario => !usuariosComConta.has(usuario.id)); // Filtra quem NÃO tem conta
+      })
+    );
+  }
+
+  public putAlterarClienteAPI(clienteDTO: ClienteDTO): Observable<string> {
+    return this.http.put(`${this.baseUrl}/editar-cliente`, clienteDTO, { responseType: 'text' });
+  }
+
 }

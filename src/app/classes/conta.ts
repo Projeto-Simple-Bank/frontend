@@ -3,7 +3,7 @@ import { Usuario } from './usuario';
 export class Conta {
   constructor(
     public id: string = '',
-    public ativa: number = 1,
+    public ativa: number = 0,
     public tipoConta: number = 1,
     public agencia: number = 0,
     public saldo: number = 0.0,
@@ -14,6 +14,9 @@ export class Conta {
     public usuario?: Usuario,
   ) {}
   get statusAtivo(): boolean {
-    return this.ativa === 1;
+    return this.ativa === 0;
+  }
+  get sTipoConta(): boolean {
+    return this.tipoConta === 1;
   }
 }
