@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ContaService } from '../../services';
 import { CommonModule } from '@angular/common';
 import { NovaConta } from '../../classes/nova-conta';
-import { ClienteDTO } from '../../classes/ClienteDTO';
+import { ClienteDTO } from '../../classes/clienteDTO';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -32,7 +32,9 @@ export class DashboardAdminComponent implements OnInit {
 
   abrirModal(conta: Conta): void {
     this.contaSelecionada = conta;
-    const modalElement = document.getElementById('detalhesContaModal') as HTMLElement;
+    const modalElement = document.getElementById(
+      'detalhesContaModal'
+    ) as HTMLElement;
     if (modalElement) {
       const modal = new Modal(modalElement);
       modal.show();
@@ -41,7 +43,9 @@ export class DashboardAdminComponent implements OnInit {
 
   abrirModal2(usuario: Usuario): void {
     this.usuarioSelecionado = usuario;
-    const modalElement = document.getElementById('autorizarContaModal') as HTMLElement;
+    const modalElement = document.getElementById(
+      'autorizarContaModal'
+    ) as HTMLElement;
     if (modalElement) {
       const modal = new Modal(modalElement);
       modal.show();
@@ -55,7 +59,7 @@ export class DashboardAdminComponent implements OnInit {
       },
       error: (erro) => {
         console.error('Erro ao listar contas', erro);
-      }
+      },
     });
   }
 
@@ -66,7 +70,7 @@ export class DashboardAdminComponent implements OnInit {
       },
       error: (erro) => {
         console.error('Erro ao listar usuários sem conta', erro);
-      }
+      },
     });
   }
 
@@ -93,7 +97,7 @@ export class DashboardAdminComponent implements OnInit {
       error: (erro) => {
         console.error('Erro ao criar conta:', erro);
         alert('Erro ao criar conta!');
-      }
+      },
     });
   }
 
@@ -102,20 +106,20 @@ export class DashboardAdminComponent implements OnInit {
       alert('Nenhuma conta selecionada ou usuário inválido!');
       return;
     }
-  
+
     const clienteDTO: ClienteDTO = {
       id: this.contaSelecionada.usuario.id,
       nome: this.contaSelecionada.usuario.nome,
       endereco: this.contaSelecionada.usuario.cep,
       tipoConta: this.contaSelecionada.tipoConta,
-      ativa: this.contaSelecionada.ativa
+      ativa: this.contaSelecionada.ativa,
     };
-  
+
     this.adminService.putAlterarClienteAPI(clienteDTO).subscribe({
       next: () => {
         alert('Cliente alterado com sucesso!');
         this.listarContas();
-  
+
         const modalElement = document.getElementById('alterarInfos');
         if (modalElement) {
           const modalInstance = Modal.getInstance(modalElement);
@@ -125,13 +129,14 @@ export class DashboardAdminComponent implements OnInit {
       error: (erro) => {
         console.error('Erro ao alterar cliente:', erro);
         alert('Erro ao alterar cliente!');
-      }
+      },
     });
   }
 
   tabelaAtiva: 'contas' | 'usuariosSemConta' = 'contas';
 
   alternarTabela() {
-    this.tabelaAtiva = this.tabelaAtiva === 'contas' ? 'usuariosSemConta' : 'contas';
+    this.tabelaAtiva =
+      this.tabelaAtiva === 'contas' ? 'usuariosSemConta' : 'contas';
   }
 }

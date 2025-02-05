@@ -1,6 +1,6 @@
 export class Usuario {
   constructor(
-    public id: string = '', // nao sei se é de fato necessario
+    public id?: string,
     public nome: string = '',
     public cpf: string = '',
     public rg: string = '',

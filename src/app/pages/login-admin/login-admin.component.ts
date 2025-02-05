@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
 import { Admin } from '../../classes/admin';
+import Swal from 'sweetalert2';
+import { routes } from '../../routes';
 
 @Component({
   selector: 'app-login-admin',
@@ -21,16 +23,29 @@ export class LoginAdminComponent {
       };
 
       this.adminService.postLoginAdminAPI(dadosLogin).subscribe({
-        next: (resposta) => {
-          console.log('Login bem-sucedido:', resposta);
-          window.alert('Logado com sucesso!');
-          
-          // Redireciona para o Dashboard com o ID da conta
-          this.router.navigate([`admin/dashboard/${resposta.id}`]);
+        next: (resposta) => sessionStorage.setItem('auth_token', resposta.id as string),
+        complete: () => {
+          Swal.fire({
+            title: 'Gerente logado!',
+            icon: 'success',
+            confirmButtonColor: '#e80070',
+            timer: 3000,
+            customClass: { title: 'alert' },
+          });
+  
+          setTimeout(() => {
+            this.router.navigate(['admin/dashboard']);
+          }, 1000);
         },
         error: (erro) => {
           console.error('Erro no login:', erro);
-          window.alert('Erro ao fazer login. Verifique os dados e tente novamente.');
+          Swal.fire({
+            title: 'O email ou senha estão incorretos.',
+            icon: 'error',
+            confirmButtonColor: '#e80070',
+            timer: 3000,
+            customClass: { title: 'alert' },
+          });
         },
       });
     }
