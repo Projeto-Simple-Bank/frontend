@@ -1,39 +1,67 @@
-<div 
-class="gap-5 d-flex justify-content-center align-items-center" 
-style="height: 100vh; background: var(--secondary); display: flex;">
- 
-  <img style="max-width: 40%;" src="/assets/login-admin.svg"
-  alt="Uma imagem de uma mulher investindo" />
+<div class="d-flex align-items-center">
+  <div
+    class="w-100 d-flex justify-content-center align-items-center"
+    style="background: var(--secondary); height: 100vh"
+  >
+    <img
+      style="max-width: 65%"
+      src="/assets/login-admin.svg"
+      alt="Uma imagem de uma mulher investindo"
+    />
+  </div>
 
-      <div 
-      style="height: 100%; width: 100%; background: var(--text-light); display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <img style="width: 55%; object-fit: cover; max-width: 300px; margin-bottom: 50px" 
-        src="/assets/logo-color.svg" 
-        alt="Logo simple bank colorida" 
-        />
-  
-        <form style="width: 80%;">
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="email" placeholder="Conta"
-            [(ngModel)]="admin.email"
-             name="email" />
-            <label for="conta">Usuário</label>
-          </div>
-          <div class="form-floating">
-            <input type="password" 
-            class="form-control" id="floatingPassword" 
-            placeholder="Password"
-            [(ngModel)]="admin.senha" 
-            name="senha" />
-            <label for="floatingPassword">Senha</label>
-          </div>
-          <a href="#" style="margin-bottom: 20px; display: block; text-align: right; text-decoration: none; color: black; margin-top: 15px;">Esqueci a senha</a>
-          <button type="button" class="btn" 
-            style="color: var(--text-light); background: var(--primary); font-size: 20px; width: 100%;"
-            (click)="logar()">
-            <span class="fw-semibold">Enviar</span>
-          </button>
-        </form>
-      </div>
-    </div>
-  
+  <div
+    class="w-100 px-5 d-flex flex-column align-items-center"
+    style="max-width: 450px"
+  >
+    <a routerLink="/">
+      <img
+        style="max-width: 300px; margin-bottom: 50px; cursor: pointer"
+        src="/assets/logo-color.svg"
+        alt="Logo simple bank colorida"
+      />
+    </a>
+
+    <form class="d-grid w-100 gap-3">
+      <input
+        class="form-control"
+        name="conta"
+        placeholder="Conta"
+        aria-label="default input example"
+        [(ngModel)]="admin.email"
+      />
+      <input
+        type="password"
+        name="senha"
+        class="form-control"
+        placeholder="Senha"
+        aria-label="default input example"
+        [(ngModel)]="admin.senha"
+      />
+      <a
+        routerLink="/recuperar-senha"
+        class="fw-semibold"
+        style="
+          display: block;
+          text-align: right;
+          text-decoration: none;
+          color: var(--text-dark);
+        "
+        >Esqueci a senha</a
+      >
+      <button
+        type="submit"
+        class="mb-4 mt-2 btn fw-bold w-100 rounded-3"
+        style="
+          background: var(--primary);
+          color: var(--text-light);
+          height: 45px;
+          font-size: 20px;
+        "
+        (click)="logarConta()"
+      >
+        Enviar
+      </button>
+    </form>
+  </div>
+</div>
