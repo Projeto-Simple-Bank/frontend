@@ -1,14 +1,17 @@
 <app-card>
-  <div class="d-flex flex-column gap-3">
-    <h2 style="font-size: 25px; font-weight: 400">Boleto</h2>
+  <div class="d-flex flex-column gap-3 h-100 justify-content-between">
+    <div>
+      <h2 style="font-size: 25px; font-weight: 400; margin-bottom: 25px">
+        Boleto
+      </h2>
 
-    <input
-      name="codigoBoleto"
-      [(ngModel)]="boleto.codigo"
-      class="form-control"
-      placeholder="Digite o código do boleto"
-    />
-
+      <input
+        name="codigoBoleto"
+        [(ngModel)]="boleto.codigo"
+        class="form-control"
+        placeholder="Digite o código de barras"
+      />
+    </div>
     <!-- ver o porque o ícone nao aparece -->
     <button
       type="submit"
@@ -42,15 +45,18 @@
         ></button>
       </div>
       <div class="modal-body">
-        <h4 style="font-size: 18px; font-weight: 400">
-          Beneficiário: {{ boleto.beneficiario }}
-        </h4>
-        <h4 style="font-size: 18px; font-weight: 400">
-          Valor a pagar:{{ boleto.valor }}
-        </h4>
-        <h4 style="font-size: 18px; font-weight: 400">
-          Vencimento: {{ boleto.dataVencimento }}
-        </h4>
+        <div class="d-flex gap-1">
+          <p style="font-weight: 600">Beneficiário:</p>
+          <p>{{ boleto.beneficiario }}</p>
+        </div>
+        <div class="d-flex gap-1">
+          <p style="font-weight: 600">Valor a pagar:</p>
+          <p>{{ boleto.valor }}</p>
+        </div>
+        <div class="d-flex gap-1">
+          <p style="font-weight: 600">Vencimento:</p>
+          <p>{{ boleto.dataVencimento }}</p>
+        </div>
       </div>
       <div class="modal-footer">
         <button

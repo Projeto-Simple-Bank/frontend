@@ -7,8 +7,7 @@
       <!-- Seletor de Instituição -->
       <div class="col-md-3">
         <select class="form-select" aria-label="Default select example">
-          <option selected disabled value="">Banco</option>
-          <option value="SimpleBank">SimpleBank</option>
+          <option selected value="SimpleBank">SimpleBank</option>
           <option value="Nubank">Nubank</option>
           <option value="Inter">Inter</option>
           <option value="Itaú">Itaú</option>
@@ -33,6 +32,7 @@
         <input
           name="conta"
           [(ngModel)]="conta.conta"
+          (ngModelChange)="consultarConta(conta.conta)"
           class="form-control"
           placeholder="Digite o número da conta"
         />
@@ -50,6 +50,7 @@
 
       <!-- Descrição da Transação (usando span de linha) -->
       <div class="col-md-9">
+        <!-- Colocar um textarea -->
         <input
           name="nome"
           [(ngModel)]="transacao.descricao"
@@ -64,8 +65,6 @@
           type="submit"
           class="w-50 mt-3 btn btn-large fw-bold rounded-3"
           style="background: var(--primary); color: var(--text-light)"
-          data-bs-target="#modalPix"
-          data-bs-toggle="modal"
           (click)="efetuarPagamento(transacao)"
         >
           <i class="bi bi-person-vcard"></i> Pagar

@@ -13,14 +13,13 @@ export class ContaService {
 
   baseUrl: string = 'http://localhost:8080/contas';
 
-  // método para listar todos os clientes
-  public getContasAPI(): Observable<Conta[]> {
-    return this.http.get<Conta[]>(`${this.baseUrl}/lista`);
-  }
-
   // método para listar a conta pelo o número dela
   public getNumeroContaAPI(numeroConta: string): Observable<Conta> {
     return this.http.get<Conta>(`${this.baseUrl}/numero-conta/${numeroConta}`);
+  }
+
+  public getContasAPI(): Observable<Conta[]> {
+    return this.http.get<Conta[]>(`${this.baseUrl}/lista`);
   }
 
   // método para retornar o cliente pelo o id

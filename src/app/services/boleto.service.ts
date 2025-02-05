@@ -12,11 +12,13 @@ export class BoletoService {
 
   baseUrl: string = 'http://localhost:8080/boletos';
 
-  public getBoletoAPI(codigo: string): Observable<Boleto> {
-    return this.http.get<Boleto>(`${this.baseUrl}/${codigo}`);
+  public getBoletoAPI(codigoBoleto: string): Observable<Boleto> {
+    return this.http.get<Boleto>(`${this.baseUrl}/${codigoBoleto}`);
   }
 
-  public postBoletoAPI(boleto: Boleto): Observable<Boleto> {
-    return this.http.post<Boleto>(`${this.baseUrl}/pagar`, boleto);
+  public postBoletoAPI(boleto: Boleto): Observable<string> {
+    return this.http.post(`${this.baseUrl}/pagar`, boleto, {
+      responseType: 'text',
+    });
   }
 }

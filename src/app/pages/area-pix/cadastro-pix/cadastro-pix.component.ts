@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 import { CardComponent } from '../../../components';
 import { PixService } from '../../../services';
@@ -23,9 +24,25 @@ export class CadastroPixComponent {
     this.pixService
       .postPixAPI({ chavePix: this.pix.chavePix, conta: { id: this.conta.id } })
       .subscribe({
+        complete: () => {
+          Swal.fire({
+            title: 'Chave pix cadastrada!',
+            icon: 'success',
+            confirmButtonColor: '#e80070',
+            timer: 3000,
+            customClass: { title: 'alert' },
+          });
+        },
         error: (erro) => {
           console.error(erro);
-          // window.alert(erro);
+
+          Swal.fire({
+            title: 'Chave pix já existe nesta conta.',
+            icon: 'error',
+            confirmButtonColor: '#e80070',
+            timer: 3000,
+            customClass: { title: 'alert' },
+          });
         },
       });
   }

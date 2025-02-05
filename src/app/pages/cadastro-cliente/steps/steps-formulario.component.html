@@ -1,0 +1,147 @@
+<form class="d-flex flex-column px-5">
+  <div class="d-flex flex-column gap-3" *ngIf="step === 1">
+    <h4
+      style="
+        font-weight: 400;
+        color: var(--primary);
+        font-size: 20px;
+        text-align: center;
+      "
+    >
+      {{ step }} - Dados Pessoais
+    </h4>
+    <input
+      name="nome"
+      class="form-control"
+      placeholder="Nome completo"
+      aria-label="default input example"
+      [(ngModel)]="dadosPessoais.nome"
+    />
+
+    <input
+      name="cpf"
+      class="form-control"
+      placeholder="CPF"
+      aria-label="default input example"
+      [(ngModel)]="dadosPessoais.cpf"
+    />
+
+    <input
+      name="rg"
+      class="form-control"
+      placeholder="RG"
+      aria-label="default input example"
+      [(ngModel)]="dadosPessoais.rg"
+    />
+
+    <input
+      name="telefone"
+      class="form-control"
+      placeholder="Telefone"
+      aria-label="default input example"
+      [(ngModel)]="dadosPessoais.telefone"
+    />
+
+    <button
+      type="button"
+      (click)="nextStep()"
+      class="mt-3 btn btn-large fw-bold w-100 rounded-3"
+      style="
+        background: var(--primary);
+        color: var(--text-light);
+        height: 45px;
+        font-size: 20px;
+      "
+    >
+      Avançar
+    </button>
+  </div>
+
+  <div class="d-flex flex-column gap-3" *ngIf="step === 2">
+    <h4
+      style="
+        font-weight: 400;
+        color: var(--primary);
+        font-size: 20px;
+        text-align: center;
+      "
+    >
+      {{ step }} - Informações de contato
+    </h4>
+    <input
+      name="cep"
+      class="form-control"
+      placeholder="Cep"
+      aria-label="default input example"
+      [(ngModel)]="endereco.cep"
+    />
+
+    <input
+      name="rua"
+      class="form-control"
+      placeholder="Rua"
+      aria-label="default input example"
+      [(ngModel)]="endereco.rua"
+    />
+
+    <input
+      name="numero"
+      class="form-control"
+      placeholder="Número"
+      aria-label="default input example"
+      [(ngModel)]="endereco.numero"
+    />
+
+    <input
+      name="bairro"
+      class="form-control"
+      placeholder="Bairro"
+      aria-label="default input example"
+      [(ngModel)]="endereco.bairro"
+    />
+
+    <input
+      name="cidade"
+      class="form-control"
+      placeholder="Cidade"
+      aria-label="default input example"
+      [(ngModel)]="endereco.cidade"
+    />
+
+    <input
+      name="estado"
+      class="form-control"
+      placeholder="Estado"
+      aria-label="default input example"
+      [(ngModel)]="endereco.estado"
+    />
+    <div class="d-flex gap-3">
+      <button
+        type="button"
+        (click)="prevStep()"
+        class="mt-3 btn btn-large fw-bold w-50 rounded-3"
+        style="
+          border: 1px solid var(--primary);
+          color: var(--primary);
+          height: 45px;
+          font-size: 20px;
+        "
+      >
+        Voltar
+      </button>
+      <button
+        type="submit"
+        class="mt-3 btn btn-large fw-bold w-50 rounded-3"
+        style="
+          background: var(--primary);
+          color: var(--text-light);
+          height: 45px;
+          font-size: 20px;
+        "
+        (click)="cadastrar(usuario)"
+      >
+        Enviar
+      </button>
+    </div>
+  </div>
+</form>
