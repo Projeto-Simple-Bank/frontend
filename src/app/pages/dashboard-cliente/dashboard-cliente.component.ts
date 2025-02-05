@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CardComponent } from './card';
+import { CardAcessoRapidoComponent } from './card';
 import { BoxContentComponent, PaginacaoComponent } from '../../components';
 import { ContaService, TransacaoService } from '../../services';
 import { Conta, Transacao } from '../../classes';
+import { CardComponent } from '../../components';
+import { formatarPreco } from '../../utils';
 
 @Component({
   selector: 'app-dashboard-cliente',
@@ -12,6 +14,7 @@ import { Conta, Transacao } from '../../classes';
     CommonModule,
     BoxContentComponent,
     PaginacaoComponent,
+    CardAcessoRapidoComponent,
     CardComponent,
   ],
   templateUrl: './dashboard-cliente.component.html',
@@ -32,6 +35,16 @@ export class DashboardClienteComponent implements OnInit {
     this.contasService
       .getClienteAPI(this.conta.id)
       .subscribe((resposta) => (this.conta = resposta));
+
+    this.saldoFormatado;
+  }
+
+  get saldoFormatado(): string {
+    return formatarPreco(this.conta.saldo);
+  }
+
+  getTipoTransacao(tipo: number): string {
+    return tipo === 1 ? 'Pix' : tipo === 2 ? 'Ted' : 'Boleto';
   }
 
   conta: Conta = new Conta();
