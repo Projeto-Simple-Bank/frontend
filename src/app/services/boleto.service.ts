@@ -16,7 +16,9 @@ export class BoletoService {
     return this.http.get<Boleto>(`${this.baseUrl}/${codigoBoleto}`);
   }
 
-  public postBoletoAPI(boleto: Boleto): Observable<Boleto> {
-    return this.http.post<Boleto>(`${this.baseUrl}/pagar`, boleto);
+  public postBoletoAPI(boleto: Boleto): Observable<string> {
+    return this.http.post(`${this.baseUrl}/pagar`, boleto, {
+      responseType: 'text',
+    });
   }
 }
