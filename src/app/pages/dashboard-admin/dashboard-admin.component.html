@@ -3,7 +3,7 @@
     <h3 class="p-3 text-center" style="color: var(--primary); font-weight: bold; display: inline-block;">
         Gerenciamento de Usuário
     </h3>
-    <button class="btn" (click)="alternarTabela()" style="float: right; width: 300px; background-color: var(--primary);">
+    <button class="btn" (click)="alternarTabela()" style="float: right; width: 300px; background-color: var(--primary); color: white;">
         {{ tabelaAtiva === 'contas' ? 'Mostrar Usuários Sem Conta' : 'Mostrar Contas Ativas' }}
     </button>
   </div>
@@ -75,7 +75,7 @@
         <p><strong>Status:</strong> {{ contaSelecionada?.ativa === 1 ? 'Ativa' : 'Inativa' }}</p>
       </div>
       <div class="modal-footer">
-        <button class="btn" data-bs-target="#alterarInfos" data-bs-toggle="modal" style="background-color: var(--primary);">Alterar Informações de Conta</button>
+        <button class="btn" data-bs-target="#alterarInfos" data-bs-toggle="modal" style="background-color: var(--primary); color: white;">Alterar Informações de Conta</button>
       </div>
     </div>
   </div>
@@ -109,8 +109,8 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="alterarCliente()">Salvar Alterações</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn" (click)="alterarCliente()" style="color: white; background-color: var(--primary);">Salvar Alterações</button>
+            <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: white; color: var(--primary);">Cancelar</button>
           </div>
         </form>
       </div>
@@ -141,8 +141,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" style="background-color: var(--primary);" (click)="abrirConta()">Criar Conta</button>
-        <button type="button" class="btn btn-secondary">Recusar</button>
+        <button class="btn" style="background-color: var(--primary); color: white;" (click)="abrirConta()">Criar Conta</button>
+        <button type="button" class="btn" style="background-color: white; color: var(--primary);">Recusar</button>
       </div>
     </div>
   </div>

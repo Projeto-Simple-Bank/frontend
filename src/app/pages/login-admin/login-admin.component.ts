@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
 import { Admin } from '../../classes/admin';
 import Swal from 'sweetalert2';
-import { routes } from '../../routes';
 
 @Component({
   selector: 'app-login-admin',
