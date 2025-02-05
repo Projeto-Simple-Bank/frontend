@@ -50,5 +50,7 @@ export class PixComponent {
         // window.alert(erro);
       },
     });
+
+    this.comprovantePagamento();
   }
 }

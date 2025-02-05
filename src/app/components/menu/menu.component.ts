@@ -36,6 +36,8 @@ export class MenuComponent implements OnInit {
         this.tipoUsuario = 'cliente';
       }
     });
+
+    this.conta;
   }
 
   logout() {
