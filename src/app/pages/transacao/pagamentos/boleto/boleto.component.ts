@@ -5,6 +5,7 @@ import { CardComponent } from '../../../../components';
 import { BoletoService } from '../../../../services';
 import { Boleto } from '../../../../classes';
 import { formatarData } from '../../../../utils';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-boleto',
@@ -17,9 +18,20 @@ export class BoletoComponent {
   boleto: Boleto = new Boleto();
 
   consultarBoleto(codigoBoleto: string): void {
-    this.boletoService
-      .getBoletoAPI(codigoBoleto)
-      .subscribe((resp) => (this.boleto = resp));
+    this.boletoService.getBoletoAPI(codigoBoleto).subscribe({
+      next: (resp) => (this.boleto = resp),
+      error: (erro) => {
+        console.error(erro);
+
+        Swal.fire({
+          title: 'Código do boleto inválido',
+          icon: 'error',
+          confirmButtonColor: '#e80070',
+          timer: 3000,
+          customClass: { title: 'alert' },
+        });
+      },
+    });
   }
 
   efetuarPagamento(boleto: Boleto): void {
@@ -31,7 +43,14 @@ export class BoletoComponent {
     this.boletoService.postBoletoAPI(this.boleto).subscribe({
       error: (erro) => {
         console.error(erro);
-        // window.alert(erro);
+
+        Swal.fire({
+          title: 'O boleto já foi pago',
+          icon: 'error',
+          confirmButtonColor: '#e80070',
+          timer: 3000,
+          customClass: { title: 'alert' },
+        });
       },
     });
   }
