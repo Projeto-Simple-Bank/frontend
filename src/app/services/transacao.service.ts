@@ -14,14 +14,17 @@ export class TransacaoService {
 
   // método para listar todos as transacoes associada a um usuário específico
   public getTransacaoDaContaAPI(idConta: string): Observable<Transacao[]> {
-    return this.http.get<Transacao[]>(`${this.baseUrl}/${idConta}`);
+    return this.http.get<Transacao[]>(`${this.baseUrl}/listar/${idConta}`);
+  }
+
+  public getTransacaoIdAPI(idTransacao: string): Observable<Transacao> {
+    return this.http.get<Transacao>(`${this.baseUrl}/${idTransacao}`);
   }
 
   // método de pagamento pix e ted
-  public postTransacaoAPI(transacao: Transacao): Observable<Transacao> {
-    return this.http.post<Transacao>(
-      `${this.baseUrl}/efetuar-pagamento`,
-      transacao
-    );
+  public postTransacaoAPI(transacao: Transacao): Observable<string> {
+    return this.http.post(`${this.baseUrl}/efetuar-pagamento`, transacao, {
+      responseType: 'text',
+    });
   }
 }
