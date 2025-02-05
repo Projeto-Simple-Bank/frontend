@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { ContaService } from '../../services';
 import { LoginCliente } from '../../classes';
 import { routes } from '../../routes';
+
 @Component({
   selector: 'app-login',
   imports: [RouterLink, FormsModule],
@@ -24,17 +25,24 @@ export class LoginComponent {
           title: 'Usuário logado!',
           icon: 'success',
           confirmButtonColor: '#e80070',
-          timer: 1500,
-          customClass: { title: 'alert' }, // arrumar o css
+          timer: 3000,
+          customClass: { title: 'alert' },
         });
 
         setTimeout(() => {
           this.router.navigate([routes.dashboard]);
-        }, 3000);
+        }, 5000);
       },
       error: (erro) => {
         console.error(erro);
-        // window.alert(erro);
+
+        Swal.fire({
+          title: 'O email ou senha estão incorretos.',
+          icon: 'error',
+          confirmButtonColor: '#e80070',
+          timer: 3000,
+          customClass: { title: 'alert' },
+        });
       },
     });
   }
