@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 
 import { UsuarioService } from '../../../services';
 import { Usuario } from '../../../classes';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-steps-formulario',
@@ -42,10 +43,6 @@ export class StepsFormularioComponent {
     this.step--;
   }
 
-  fechar(): void {
-    this.router.navigate(['/mensagem-cadastro']);
-  }
-
   cadastrar(usuario: Usuario): void {
     console.log('Dados Pessoais:', this.dadosPessoais);
     console.log('Informações de Contato:', this.endereco);
@@ -64,10 +61,18 @@ export class StepsFormularioComponent {
     };
 
     this.usuarioService.postUsuarioAPI(usuario).subscribe({
-      complete: () => this.fechar(),
+      complete: () => {
+        Swal.fire({
+          title: 'Usuário cadastrado!',
+          text: 'O retorno da aprovação de conta será enviado para seu email durante uma semana.',
+          icon: 'success',
+          confirmButtonColor: '#e80070',
+          timer: 10000,
+          customClass: { title: 'alert' },
+        });
+      },
       error: (erro) => {
         console.error(erro);
-        // window.alert(erro);
       },
     });
   }
