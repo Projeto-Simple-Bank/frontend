@@ -7,6 +7,7 @@ import { ContaService } from '../../services';
 import { CommonModule } from '@angular/common';
 import { NovaConta } from '../../classes/nova-conta';
 import { ClienteDTO } from '../../classes/clienteDTO';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -76,7 +77,13 @@ export class DashboardAdminComponent implements OnInit {
 
   abrirConta(): void {
     if (!this.usuarioSelecionado || !this.usuarioSelecionado.id) {
-      alert('Usuário inválido!');
+      Swal.fire({
+        title: 'Usuário inválido!',
+        icon: 'error',
+        confirmButtonColor: '#e80070',
+        timer: 3000,
+        customClass: { title: 'alert' },
+      });
       return;
     }
 
@@ -84,7 +91,13 @@ export class DashboardAdminComponent implements OnInit {
 
     this.contaService.postContaAPI(this.novaConta).subscribe({
       next: (contaCriada) => {
-        alert(`Conta criada com sucesso! Número: ${contaCriada.conta}`);
+        Swal.fire({
+          title: `Conta criada com sucesso! Número: ${contaCriada.conta}`,
+          icon: 'success',
+          confirmButtonColor: '#e80070',
+          timer: 3000,
+          customClass: { title: 'alert' },
+        });
         this.listarUsuariosSemConta();
         this.listarContas();
 
@@ -96,7 +109,13 @@ export class DashboardAdminComponent implements OnInit {
       },
       error: (erro) => {
         console.error('Erro ao criar conta:', erro);
-        alert('Erro ao criar conta!');
+        Swal.fire({
+          title: 'Erro ao criar conta!',
+          icon: 'error',
+          confirmButtonColor: '#e80070',
+          timer: 3000,
+          customClass: { title: 'alert' },
+        });
       },
     });
   }
@@ -117,7 +136,14 @@ export class DashboardAdminComponent implements OnInit {
 
     this.adminService.putAlterarClienteAPI(clienteDTO).subscribe({
       next: () => {
-        alert('Cliente alterado com sucesso!');
+        Swal.fire({
+          title: 'Cliente alterado com sucesso!',
+          icon: 'success',
+          confirmButtonColor: '#e80070',
+          timer: 3000,
+          customClass: { title: 'alert' },
+        });
+
         this.listarContas();
 
         const modalElement = document.getElementById('alterarInfos');
@@ -128,7 +154,13 @@ export class DashboardAdminComponent implements OnInit {
       },
       error: (erro) => {
         console.error('Erro ao alterar cliente:', erro);
-        alert('Erro ao alterar cliente!');
+        Swal.fire({
+          title: 'Erro ao alterar cliente!',
+          icon: 'error',
+          confirmButtonColor: '#e80070',
+          timer: 3000,
+          customClass: { title: 'alert' },
+        });
       },
     });
   }
