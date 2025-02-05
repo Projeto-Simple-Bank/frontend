@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { UsuarioService } from '../../../services';
 import { Usuario } from '../../../classes';
 import Swal from 'sweetalert2';
+import { routes } from '../../../routes';
 
 @Component({
   selector: 'app-steps-formulario',
@@ -22,14 +23,13 @@ export class StepsFormularioComponent {
     nome: '',
     cpf: '',
     rg: '',
-    senha: '',
     telefone: '',
   };
 
   endereco = {
     cep: '',
     rua: '',
-    numero: 0,
+    numero: null,
     bairro: '',
     cidade: '',
     estado: '',
@@ -50,7 +50,6 @@ export class StepsFormularioComponent {
       nome: this.dadosPessoais.nome,
       cpf: this.dadosPessoais.cpf,
       rg: this.dadosPessoais.rg,
-      senha: this.dadosPessoais.senha,
       telefone: this.dadosPessoais.telefone,
       cep: this.endereco.cep,
       rua: this.endereco.rua,
@@ -64,12 +63,16 @@ export class StepsFormularioComponent {
       complete: () => {
         Swal.fire({
           title: 'Usuário cadastrado!',
-          text: 'O retorno da aprovação de conta será enviado para seu email durante uma semana.',
+          text: 'O retorno da aprovação de conta será enviado para seu email dentro de uma semana.',
           icon: 'success',
           confirmButtonColor: '#e80070',
           timer: 10000,
           customClass: { title: 'alert' },
         });
+
+        setTimeout(() => {
+          this.router.navigate([routes.home]);
+        }, 10000);
       },
       error: (erro) => {
         console.error(erro);
