@@ -6,12 +6,14 @@ import {
   DashboardClienteComponent,
   TransacaoComponent,
   CadastroClienteComponent,
+  AreaPixComponent,
 } from './pages';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'dashboard', component: DashboardClienteComponent },
-  { path: 'transacao', component: TransacaoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroClienteComponent },
+  { path: 'dashboard', component: DashboardClienteComponent },
+  { path: 'transacoes', component: TransacaoComponent },
+  { path: 'area-pix', component: AreaPixComponent },
 ];
