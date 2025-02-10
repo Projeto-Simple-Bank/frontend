@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 // componentes que nós criamos
-import { FooterComponent, MenuComponent } from './components';
+import { MenuComponent, FooterComponent } from './components';
 
 @Component({
   selector: 'app-root',

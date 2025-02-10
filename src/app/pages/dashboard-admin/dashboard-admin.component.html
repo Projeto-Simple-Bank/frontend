@@ -1,0 +1,149 @@
+<div class="d-flex flex-column p-4" style="height: 100vh; background-color: var(--secondary);">
+  <div>
+    <h3 class="p-3 text-center" style="color: var(--primary); font-weight: bold; display: inline-block;">
+        Gerenciamento de Usuário
+    </h3>
+    <button class="btn" (click)="alternarTabela()" style="float: right; width: 300px; background-color: var(--primary); color: white;">
+        {{ tabelaAtiva === 'contas' ? 'Mostrar Usuários Sem Conta' : 'Mostrar Contas Ativas' }}
+    </button>
+  </div>
+  <div class="card shadow-sm p-3" style="width: 90%; margin: auto; border-radius: 10px;" *ngIf="tabelaAtiva === 'contas'">
+    <h4 class="text-center" style="color: var(--primary);">Contas Cadastradas</h4>
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered text-center">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col" style="background-color: var(--primary);">N°</th>
+            <th scope="col" style="background-color: var(--primary);">Usuário</th>
+            <th scope="col" style="background-color: var(--primary);">Número de Conta</th>
+            <th scope="col" style="background-color: var(--primary);">Saldo</th>
+            <th scope="col" style="background-color: var(--primary);">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of contas; let i = index" class="table-light" style="cursor: pointer;" (click)="abrirModal(c)">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ c.usuario?.nome }}</td>
+            <td>{{ c.conta }}</td>
+            <td>R$ {{ c.saldo | number:'1.2-2' }}</td>
+            <td><span class="badge" [ngClass]="{'bg-success': c.ativa === 1, 'bg-danger': c.ativa !== 1}">{{ c.ativa === 1 ? 'Ativa' : 'Inativa' }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card shadow-sm p-3" style="width: 90%; margin: auto; border-radius: 10px;" *ngIf="tabelaAtiva === 'usuariosSemConta'">
+    <h4 class="text-center" style="color: var(--primary);">Usuários Sem Conta</h4>
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered text-center">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col" style="background-color: var(--primary);">N°</th>
+            <th scope="col" style="background-color: var(--primary);">Usuário</th>
+            <th scope="col" style="background-color: var(--primary);">CPF</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let u of usuariosSemConta; let i = index" class="table-light" style="cursor: pointer;" (click)="abrirModal2(u)">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ u.nome }}</td>
+            <td>{{ u.cpf }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DETALHES DA CONTA -->
+<div class="modal fade" id="detalhesContaModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Detalhes da Conta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Nome:</strong> {{ contaSelecionada?.usuario?.nome }}</p>
+        <p><strong>CPF:</strong> {{ contaSelecionada?.usuario?.cpf }}</p>
+        <p><strong>Endereço:</strong> {{ contaSelecionada?.usuario?.rua }}, {{ contaSelecionada?.usuario?.numero }} {{ contaSelecionada?.usuario?.bairro }}, {{ contaSelecionada?.usuario?.cidade }}</p>
+        <p><strong>Número da Conta:</strong> {{ contaSelecionada?.conta }}</p>
+        <p><strong>Agência:</strong> {{ contaSelecionada?.agencia }}</p>
+        <p><strong>Tipo da Conta</strong> {{ contaSelecionada?.tipoConta === 1 ? 'Comum' : 'Especial' }}</p>
+        <p><strong>Saldo:</strong> R$ {{ contaSelecionada?.saldo }}</p>
+        <p><strong>Status:</strong> {{ contaSelecionada?.ativa === 1 ? 'Ativa' : 'Inativa' }}</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-bs-target="#alterarInfos" data-bs-toggle="modal" style="background-color: var(--primary); color: white;">Alterar Informações de Conta</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ALTERAR INFORMAÇÕES -->
+<div class="modal fade" id="alterarInfos" aria-hidden="true" aria-labelledby="alterarInfosTitule" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Alterar Informações do Cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="contaSelecionada" #alterarForm="ngForm">
+
+          <div class="mb-3">
+            <label for="tipoConta" class="form-label">Tipo de Conta</label>
+            <select id="tipoConta" class="form-select" name="tipoConta" [(ngModel)]="contaSelecionada.tipoConta">
+              <option [value]="1">Comum</option>
+              <option [value]="2">Especial</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="ativa" class="form-label">Status</label>
+            <select id="ativa" class="form-select" name="ativa" [(ngModel)]="contaSelecionada.ativa">
+              <option [value]="1">Ativa</option>
+              <option [value]="0">Inativa</option>
+            </select>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn" (click)="alterarCliente()" style="color: white; background-color: var(--primary);">Salvar Alterações</button>
+            <button type="button" class="btn" data-bs-dismiss="modal" style="background-color: white; color: var(--primary);">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL AUTORIZAR CONTA -->
+<div class="modal fade" id="autorizarContaModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Aprovação de Conta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Nome:</strong> {{ usuarioSelecionado?.nome }}</p>
+        <p><strong>CPF:</strong> {{ usuarioSelecionado?.cpf }}</p>
+        <p><strong>Agência:</strong> {{ usuarioSelecionado?.rg }}</p>
+        <p><strong>Endereço:</strong> {{ usuarioSelecionado?.rua }}, {{ usuarioSelecionado?.numero }} - {{ usuarioSelecionado?.bairro }}, {{ usuarioSelecionado?.cidade }}</p>
+        <p><strong>Número da Conta:</strong> {{ usuarioSelecionado?.telefone }}</p>
+        <div class="mb-3">
+          <label for="tipoConta" class="form-label">Tipo de Conta</label>
+          <select id="tipoConta" class="form-select" name="tipoConta" [(ngModel)]="novaConta.tipoConta">
+            <option [value]="1">Comum</option>
+            <option [value]="2">Especial</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" style="background-color: var(--primary); color: white;" (click)="abrirConta()">Criar Conta</button>
+        <button type="button" class="btn" style="background-color: white; color: var(--primary);">Recusar</button>
+      </div>
+    </div>
+  </div>
+</div>

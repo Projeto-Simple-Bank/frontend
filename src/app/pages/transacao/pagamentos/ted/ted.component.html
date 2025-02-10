@@ -1,0 +1,75 @@
+<app-card>
+  <div class="container py-2">
+    <h2 style="font-size: 25px; font-weight: 400; margin-bottom: 25px">Ted</h2>
+
+    <!-- Grid Layout com Bootstrap -->
+    <div class="row g-3">
+      <!-- Seletor de Instituição -->
+      <div class="col-md-3">
+        <select class="form-select" aria-label="Default select example">
+          <option selected value="SimpleBank">SimpleBank</option>
+          <option value="Nubank">Nubank</option>
+          <option value="Inter">Inter</option>
+          <option value="Itaú">Itaú</option>
+          <option value="Bradesco">Bradesco</option>
+          <option value="Santander">Santander</option>
+          <option value="Mercado Pago">Mercado Pago</option>
+        </select>
+      </div>
+
+      <!-- Agência -->
+      <div class="col-md-3">
+        <input
+          name="agencia"
+          [(ngModel)]="conta.agencia"
+          class="form-control"
+          placeholder="Agência"
+        />
+      </div>
+
+      <!-- Número da Conta -->
+      <div class="col-md-6">
+        <input
+          name="conta"
+          [(ngModel)]="conta.conta"
+          (ngModelChange)="consultarConta(conta.conta)"
+          class="form-control"
+          placeholder="Digite o número da conta"
+        />
+      </div>
+
+      <!-- Valor da Transação -->
+      <div class="col-md-3">
+        <input
+          name="nome"
+          [(ngModel)]="transacao.valor"
+          class="form-control"
+          placeholder="Valor"
+        />
+      </div>
+
+      <!-- Descrição da Transação (usando span de linha) -->
+      <div class="col-md-9">
+        <!-- Colocar um textarea -->
+        <input
+          name="nome"
+          [(ngModel)]="transacao.descricao"
+          class="form-control"
+          placeholder="Digite a descrição"
+        />
+      </div>
+
+      <!-- Botão de Submit -->
+      <div class="d-flex justify-content-end">
+        <button
+          type="submit"
+          class="w-50 mt-3 btn btn-large fw-bold rounded-3"
+          style="background: var(--primary); color: var(--text-light)"
+          (click)="efetuarPagamento(transacao)"
+        >
+          <i class="bi bi-person-vcard"></i> Pagar
+        </button>
+      </div>
+    </div>
+  </div>
+</app-card>

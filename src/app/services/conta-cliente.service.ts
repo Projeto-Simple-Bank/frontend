@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Conta } from '../classes/conta';
+
+import { Conta, LoginCliente } from '../classes';
+import { NovaConta } from '../classes/nova-conta';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +13,11 @@ export class ContaService {
 
   baseUrl: string = 'http://localhost:8080/contas';
 
-  // método para listar todos os clientes
+  // método para listar a conta pelo o número dela
+  public getNumeroContaAPI(numeroConta: string): Observable<Conta> {
+    return this.http.get<Conta>(`${this.baseUrl}/numero-conta/${numeroConta}`);
+  }
+
   public getContasAPI(): Observable<Conta[]> {
     return this.http.get<Conta[]>(`${this.baseUrl}/lista`);
   }
@@ -21,8 +27,11 @@ export class ContaService {
     return this.http.get<Conta>(`${this.baseUrl}/${id}`);
   }
 
-  // método POST para login
-  public postLoginContaAPI(dadosLogin: { conta: string; senha: string }): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/login`, dadosLogin);
+  public postContaAPI(conta: NovaConta): Observable<Conta> {
+    return this.http.post<Conta>(`${this.baseUrl}/criar-conta`, conta);
+  }
+
+  public postLoginAPI(conta: LoginCliente): Observable<LoginCliente> {
+    return this.http.post<LoginCliente>(`${this.baseUrl}/login`, conta);
   }
 }

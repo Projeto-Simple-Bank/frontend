@@ -1,0 +1,81 @@
+<div
+  style="
+    background: var(--secondary);
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  "
+>
+  <app-box-content>
+    <div class="d-flex justify-content-between gap-4">
+      <div
+        class="d-flex flex-column gap-4"
+        style="width: 100%; max-width: 350px"
+      >
+        <app-card>
+          <div class="d-flex gap-2">
+            <h3 style="font-size: 30px">Saldo</h3>
+
+            <button
+              style="
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+              "
+            >
+              <i
+                class="bi bi-eye-slash"
+                style="font-size: 25px; color: var(--primary)"
+              ></i>
+            </button>
+          </div>
+          <div class="d-flex justify-content-center align-items-center gap-1">
+            <p style="font-size: 21px; color: var(--primary)">R$</p>
+            <p style="font-size: 35px">{{ saldoFormatado }}</p>
+          </div>
+        </app-card>
+
+        <app-card-acesso-rapido></app-card-acesso-rapido>
+      </div>
+
+      <div class="w-100">
+        <app-card>
+          <div class="d-flex justify-content-between">
+            <div>
+              <h3 style="margin: 0px; font-size: 30px">Resumo de transações</h3>
+              <p style="text-align: end">(PIX, boletos, gastos do débito)</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <input type="date" class="form-control" />
+            </div>
+          </div>
+          <div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">N°</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Valor</th>
+                  <th scope="col">Descrição</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let t of transacoes; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ t.dataTransacao }}</td>
+                  <td>{{ getTipoTransacao(t.tipoTransacao) }}</td>
+                  <td>{{ t.valor }}</td>
+                  <td>{{ t.descricao }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <app-paginacao></app-paginacao>
+        </app-card>
+      </div>
+    </div>
+  </app-box-content>
+</div>

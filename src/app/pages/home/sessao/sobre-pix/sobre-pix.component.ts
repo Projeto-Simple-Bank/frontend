@@ -3,6 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-sobre-pix',
   imports: [],
-  templateUrl: './sobrePix.component.html',
+  templateUrl: './sobre-pix.component.html',
 })
 export class SobrePixComponent {}

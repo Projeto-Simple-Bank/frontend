@@ -1,32 +1,48 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { Conta } from '../../classes/conta';
+import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
+
 import { ContaService } from '../../services';
+import { LoginCliente } from '../../classes';
+import { routes } from '../../routes';
+
 @Component({
   selector: 'app-login',
-  imports: [RouterLink],
+  imports: [RouterLink, FormsModule],
   templateUrl: './login.component.html',
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  conta: Conta = new Conta();
+  constructor(private contaService: ContaService, private router: Router) {}
+  conta: LoginCliente = new LoginCliente();
 
-  constructor(private router: Router, private contaService: ContaService) {}
+  logarConta(conta: LoginCliente): void {
+    this.contaService.postLoginAPI(conta).subscribe({
+      next: (resp) => sessionStorage.setItem('auth_token', resp.id as string),
+      complete: () => {
+        Swal.fire({
+          title: 'Usuário logado!',
+          icon: 'success',
+          confirmButtonColor: '#e80070',
+          timer: 3000,
+          customClass: { title: 'alert' },
+        });
 
-  logar(): void {
-    const dadosLogin = {
-      conta: this.conta.conta,
-      senha: this.conta.senha
-    };
-
-    this.contaService.postLoginContaAPI(dadosLogin).subscribe({
-      next: (resposta) => {
-        console.log('Login bem-sucedido:', resposta);
-        window.alert('Logado com sucesso!');
-        this.router.navigate([`/dashboard/${resposta.id}`]);
+        setTimeout(() => {
+          this.router.navigate([routes.dashboard]);
+        }, 5000);
       },
       error: (erro) => {
-        console.error('Erro no login:', erro);
-        window.alert('Erro ao fazer login. Verifique os dados e tente novamente.');
+        console.error(erro);
+
+        Swal.fire({
+          title: 'O email ou senha estão incorretos.',
+          icon: 'error',
+          confirmButtonColor: '#e80070',
+          timer: 3000,
+          customClass: { title: 'alert' },
+        });
       },
     });
   }

@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-between align-items-center">
   <div
     class="w-100 d-flex flex-column align-items-center"
-    style="background: var(--background-medium-gray)"
+    style="background: var(--background-medium-gray); height: 100vh"
   >
     <h1 style="max-width: 70%" class="my-5 text-center">
       Chegou a hora de abrir sua conta
@@ -14,7 +14,23 @@
     />
   </div>
 
-  <div style="max-width: 450px">
+  <div style="position: absolute; top: 0; right: 0; margin: 20px">
+    <button
+      type="button"
+      class="btn btn-large fw-bold rounded-3"
+      style="
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        height: 45px;
+        font-size: 20px;
+      "
+      (click)="voltarHome()"
+    >
+      Voltar
+    </button>
+  </div>
+
+  <div style="max-width: 460px">
     <p
       class="mb-5 px-5"
       style="
@@ -28,121 +44,6 @@
       <span style="color: var(--primary)">Simple</span>Bank!
     </p>
 
-    <form class="d-flex flex-column gap-3 px-5">
-      <!-- Passo 1 -->
-      <input
-        name="nome"
-        class="form-control"
-        type="text"
-        placeholder="Nome completo"
-        aria-label="default input example"
-        [(ngModel)]="usuario.nome"
-      />
-
-      <input
-        name="cpf"
-        class="form-control"
-        type="text"
-        placeholder="CPF"
-        aria-label="default input example"
-        [(ngModel)]="usuario.cpf"
-      />
-
-      <input
-        name="rg"
-        class="form-control"
-        type="text"
-        placeholder="RG"
-        aria-label="default input example"
-        [(ngModel)]="usuario.rg"
-      />
-
-      <input
-        name="senha"
-        class="form-control"
-        type="password"
-        placeholder="Senha"
-        aria-label="default input example"
-        [(ngModel)]="usuario.senha"
-      />
-
-      <input
-        name="telefone"
-        class="form-control"
-        type="text"
-        placeholder="Telefone"
-        aria-label="default input example"
-        [(ngModel)]="usuario.telefone"
-      />
-
-      <!-- Passo 2 -->
-      <input
-        name="cep"
-        class="form-control"
-        type="text"
-        placeholder="Cep"
-        aria-label="default input example"
-        [(ngModel)]="usuario.cep"
-      />
-
-      <input
-        name="rua"
-        class="form-control"
-        type="text"
-        placeholder="Rua"
-        aria-label="default input example"
-        [(ngModel)]="usuario.rua"
-      />
-
-      <input
-        name="numero"
-        class="form-control"
-        type="text"
-        placeholder="Número"
-        aria-label="default input example"
-        [(ngModel)]="usuario.numero"
-      />
-
-      <input
-        name="bairro"
-        class="form-control"
-        type="text"
-        placeholder="Bairro"
-        aria-label="default input example"
-        [(ngModel)]="usuario.bairro"
-      />
-
-      <input
-        name="cidade"
-        class="form-control"
-        type="text"
-        placeholder="Cidade"
-        aria-label="default input example"
-        [(ngModel)]="usuario.cidade"
-      />
-
-      <input
-        name="estado"
-        class="form-control"
-        type="text"
-        placeholder="Estado"
-        aria-label="default input example"
-        [(ngModel)]="usuario.estado"
-      />
-
-      <button
-        type="submit"
-        class="mt-5 btn btn-large fw-bold w-100 rounded-3"
-        style="
-          background: var(--primary);
-          color: var(--text-light);
-          height: 45px;
-          font-size: 20px;
-        "
-        (click)="cadastrar(usuario)"
-      >
-        Enviar
-      </button>
-    </form>
+    <app-steps-formulario></app-steps-formulario>
   </div>
 </div>
