@@ -12,9 +12,11 @@ export class Conta {
 
     public usuario?: Usuario
   ) {}
+
   get statusAtivo(): boolean {
     return this.ativa === 0;
   }
+
   get sTipoConta(): boolean {
     return this.tipoConta === 1;
   }
