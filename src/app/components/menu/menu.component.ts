@@ -28,7 +28,10 @@ export class MenuComponent implements OnInit {
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.mostrarMenu = event.url !== '/login' && event.url !== '/cadastro';
+        this.mostrarMenu =
+          event.url !== '/login' &&
+          event.url !== '/cadastro' &&
+          event.url !== '/admin/login';
       }
 
       this.isLogado = !!sessionStorage.getItem('auth_token');

@@ -4,7 +4,8 @@
     style="background: var(--secondary); height: 100vh"
   >
     <img
-      src="/assets/investment-img.svg"
+      style="max-width: 65%"
+      src="/assets/login-admin.svg"
       alt="Uma imagem de uma mulher investindo"
     />
   </div>
@@ -15,7 +16,7 @@
   >
     <a routerLink="/">
       <img
-        style="max-width: 300px; margin-bottom: 50px"
+        style="max-width: 300px; margin-bottom: 50px; cursor: pointer"
         src="/assets/logo-color.svg"
         alt="Logo simple bank colorida"
       />
@@ -27,7 +28,7 @@
         name="conta"
         placeholder="Conta"
         aria-label="default input example"
-        [(ngModel)]="conta.conta"
+        [(ngModel)]="admin.email"
       />
       <input
         type="password"
@@ -35,14 +36,8 @@
         class="form-control"
         placeholder="Senha"
         aria-label="default input example"
-        [(ngModel)]="conta.senha"
+        [(ngModel)]="admin.senha"
       />
-      <a
-        routerLink="/cadastro"
-        class="fw-semibold"
-        style="text-decoration: none; color: var(--text-dark)"
-        >Torne-se um <span style="color: var(--primary)"> SimpleLover</span></a
-      >
       <a
         routerLink="/recuperar-senha"
         class="fw-semibold"
@@ -63,16 +58,10 @@
           height: 45px;
           font-size: 20px;
         "
-        (click)="logarConta(conta)"
+        (click)="logarConta()"
       >
         Enviar
       </button>
     </form>
-    <a
-      routerLink="/admin/login"
-      class="fw-semibold"
-      style="font-size: 18px; text-decoration: none; color: var(--primary)"
-      >Entrar como Gerente</a
-    >
   </div>
 </div>

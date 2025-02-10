@@ -15,7 +15,10 @@ export class FooterComponent {
   ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.showFooter = event.url !== '/login' && event.url !== '/cadastro';
+        this.showFooter =
+          event.url !== '/login' &&
+          event.url !== '/cadastro' &&
+          event.url !== '/admin/login';
       }
     });
   }

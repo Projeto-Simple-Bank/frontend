@@ -1,5 +1,6 @@
 export class Usuario {
   constructor(
+    public id?: string,
     public nome: string = '',
     public cpf: string = '',
     public rg: string = '',
