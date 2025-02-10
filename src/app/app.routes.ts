@@ -19,7 +19,6 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardClienteComponent },
   { path: 'transacoes', component: TransacaoComponent },
   { path: 'area-pix', component: AreaPixComponent },
-
   { path: 'admin/login', component: LoginAdminComponent },
   { path: 'admin/cadastro', component: CadastroAdminComponent },
   { path: 'admin/dashboard', component: DashboardAdminComponent },
