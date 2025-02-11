@@ -64,11 +64,13 @@
 
         <input
           [(ngModel)]="transacao.valor"
+          name="valor"
           placeholder="Valor a pagar"
           class="form-control mt-2 mb-3"
         />
         <input
           [(ngModel)]="transacao.descricao"
+          name="descricao"
           placeholder="Descrição do pagamento"
           class="form-control"
         />
@@ -116,7 +118,7 @@
         </div>
         <div class="d-flex justify-content-between gap-1">
           <p>Total Pago</p>
-          <p style="font-weight: 600">{{ transacao.valor }}</p>
+          <p style="font-weight: 600">{{ valorFormatado }}</p>
         </div>
 
         <div class="d-flex justify-content-between gap-1">

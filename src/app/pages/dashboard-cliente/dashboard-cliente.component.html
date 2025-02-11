@@ -33,7 +33,9 @@
           </div>
           <div class="d-flex justify-content-center align-items-center gap-1">
             <p style="font-size: 21px; color: var(--primary)">R$</p>
-            <p style="font-size: 35px">{{ saldoFormatado }}</p>
+            <p style="font-size: 35px">
+              {{ valorFormatado(this.conta.saldo) }}
+            </p>
           </div>
         </app-card>
 
@@ -67,7 +69,7 @@
                   <th scope="row">{{ i + 1 }}</th>
                   <td>{{ t.dataTransacao }}</td>
                   <td>{{ getTipoTransacao(t.tipoTransacao) }}</td>
-                  <td>{{ t.valor }}</td>
+                  <td>{{ valorFormatado(t.valor) }}</td>
                   <td>{{ t.descricao }}</td>
                 </tr>
               </tbody>

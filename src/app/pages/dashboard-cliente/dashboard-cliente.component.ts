@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CardAcessoRapidoComponent } from './card';
-import { BoxContentComponent, PaginacaoComponent } from '../../components';
+import {
+  BoxContentComponent,
+  PaginacaoComponent,
+  CardComponent,
+} from '../../components';
 import { ContaService, TransacaoService } from '../../services';
 import { Conta, Transacao } from '../../classes';
-import { CardComponent } from '../../components';
 import { formatarPreco } from '../../utils';
 
 @Component({
@@ -36,11 +39,11 @@ export class DashboardClienteComponent implements OnInit {
       .getClienteAPI(this.conta.id)
       .subscribe((resposta) => (this.conta = resposta));
 
-    this.saldoFormatado;
+    this.valorFormatado;
   }
 
-  get saldoFormatado(): string {
-    return formatarPreco(this.conta.saldo);
+  valorFormatado(valor: any): string {
+    return formatarPreco(Number(valor));
   }
 
   getTipoTransacao(tipo: number): string {

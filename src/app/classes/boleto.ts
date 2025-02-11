@@ -6,6 +6,7 @@ export class Boleto {
     public dataTransacao: string = '',
     public dataVencimento: string = '',
     public statusBoleto: boolean = true,
-    public valor: number = 0
+    public valor: number = 0,
+    public transacaoId: string = ''
   ) {}
 }

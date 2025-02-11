@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 import { CardComponent } from '../../../components';
 import { PixService, TransacaoService } from '../../../services';
 import { Pix, Transacao } from '../../../classes';
-import { formatarData } from '../../../utils';
+import { formatarData, formatarPreco } from '../../../utils';
 
 @Component({
   selector: 'app-pix',
@@ -32,13 +33,19 @@ export class PixComponent {
       .subscribe((resp) => (this.transacao = resp));
   }
 
+  get valorFormatado(): string {
+    return formatarPreco(this.transacao.valor as number);
+  }
+
   efetuarPagamento(transacao: Transacao): void {
     this.transacao.tipoTransacao = 1;
     this.transacao.contaOrigem = sessionStorage.getItem('auth_token') as string;
     this.transacao.contaDestino = this.pix.conta?.id as string;
     this.transacao.dataTransacao = formatarData(new Date());
     this.transacao.descricao = transacao.descricao;
-    this.transacao.valor = transacao.valor;
+    this.transacao.valor = Number(
+      transacao.valor?.toString().replace(',', '.')
+    );
 
     this.transacaoService.postTransacaoAPI(this.transacao).subscribe({
       next: (resp) => {
@@ -47,7 +54,14 @@ export class PixComponent {
       },
       error: (erro) => {
         console.error(erro);
-        // window.alert(erro);
+        Swal.fire({
+          title:
+            'Não foi possível fazer essa transação verifique o saldo ou a chave pix da conta.',
+          icon: 'error',
+          confirmButtonColor: '#e80070',
+          timer: 3000,
+          customClass: { title: 'alert' },
+        });
       },
     });
 

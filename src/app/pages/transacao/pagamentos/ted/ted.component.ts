@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 import { CardComponent } from '../../../../components';
 import { ContaService, TransacaoService } from '../../../../services';
 import { Conta, Transacao, Usuario } from '../../../../classes';
-import { formatarData } from '../../../../utils';
-import Swal from 'sweetalert2';
+import { formatarData, formatarPreco } from '../../../../utils';
 
 @Component({
   selector: 'app-ted',
@@ -31,13 +31,26 @@ export class TedComponent {
     });
   }
 
+  comprovantePagamento(): void {
+    this.transacaoService
+      .getTransacaoIdAPI(this.transacao.id as string)
+      .subscribe((resp) => (this.transacao = resp));
+  }
+
+  get valorFormatado(): string {
+    return formatarPreco(this.transacao.valor as number);
+  }
+
   efetuarPagamento(transacao: Transacao): void {
     this.transacao.tipoTransacao = 2; // acho que já está enviando
     this.transacao.contaOrigem = sessionStorage.getItem('auth_token') as string;
     this.transacao.contaDestino = this.conta.id;
     this.transacao.dataTransacao = formatarData(new Date());
     this.transacao.descricao = transacao.descricao;
-    this.transacao.valor = transacao.valor;
+    this.transacao.valor = Number(
+      transacao.valor?.toString().replace(',', '.')
+    );
+
     this.transacaoService.postTransacaoAPI(this.transacao).subscribe({
       error: (erro) => {
         console.error(erro);
@@ -51,5 +64,7 @@ export class TedComponent {
         });
       },
     });
+
+    this.comprovantePagamento();
   }
 }

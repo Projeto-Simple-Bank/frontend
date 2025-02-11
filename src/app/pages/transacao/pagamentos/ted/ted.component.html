@@ -41,7 +41,7 @@
       <!-- Valor da Transação -->
       <div class="col-md-3">
         <input
-          name="nome"
+          name="valor"
           [(ngModel)]="transacao.valor"
           class="form-control"
           placeholder="Valor"
@@ -52,7 +52,7 @@
       <div class="col-md-9">
         <!-- Colocar um textarea -->
         <input
-          name="nome"
+          name="descricao"
           [(ngModel)]="transacao.descricao"
           class="form-control"
           placeholder="Digite a descrição"
@@ -65,6 +65,8 @@
           type="submit"
           class="w-50 mt-3 btn btn-large fw-bold rounded-3"
           style="background: var(--primary); color: var(--text-light)"
+          data-bs-target="#modalComprovanteTed"
+          data-bs-toggle="modal"
           (click)="efetuarPagamento(transacao)"
         >
           <i class="bi bi-person-vcard"></i> Pagar
@@ -73,3 +75,59 @@
     </div>
   </div>
 </app-card>
+
+<div
+  class="modal fade"
+  id="modalComprovanteTed"
+  aria-hidden="true"
+  aria-labelledby="exampleModalToggleLabel2"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="pt-4 mb-4 d-flex flex-column align-items-center">
+        <img
+          style="margin-bottom: 20px"
+          width="120px"
+          src="/assets/logo-color.svg"
+          alt="Logo Simple Bank"
+        />
+        <h1 class="modal-title fs-4" id="exampleModalToggleLabel2">
+          Pagamento realizado
+        </h1>
+      </div>
+      <div class="modal-body">
+        <p style="font-weight: 600; margin-bottom: 20px">Sobre a transação</p>
+        <div class="d-flex justify-content-between gap-1">
+          <p>Instituição</p>
+          <p style="font-weight: 600">SimpleBank</p>
+        </div>
+        <div class="d-flex justify-content-between gap-1">
+          <p>Total Pago</p>
+          <p style="font-weight: 600">{{ valorFormatado }}</p>
+        </div>
+
+        <div class="d-flex justify-content-between gap-1">
+          <p>Data do pagamento</p>
+          <p style="font-weight: 600">{{ transacao.dataTransacao }}</p>
+        </div>
+
+        <div class="d-flex justify-content-between gap-1">
+          <p>Descrição</p>
+          <p style="font-weight: 600">{{ transacao.descricao }}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn w-100"
+          style="background: var(--primary); color: var(--text-light)"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
